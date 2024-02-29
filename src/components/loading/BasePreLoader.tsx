@@ -11,7 +11,7 @@ export default function BasePreLoader(props: BasePreLoaderProps) {
     <div
       className={twMerge(
         `
-          h-dvh flex w-full items-center justify-center bg-white dark:bg-dark-888
+          flex h-dvh w-full items-center justify-center bg-white dark:bg-dark-888
         `,
         className,
       )}

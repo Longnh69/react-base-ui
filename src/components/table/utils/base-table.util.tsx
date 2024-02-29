@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import {
-  BaseColumnGroupType,
+  type BaseColumnGroupType,
   type BaseColumnType,
   type BaseColumnsType,
-} from '@/components/base/table/types/base-table-column.type'
+} from '@/components/table/types/base-table-column.type'
 import { ESortOrder } from '@/enums/sorter.enum'
 import { CalendarOutlined, FilterOutlined, SearchOutlined } from '@ant-design/icons'
 import { Divider, Flex, Space, type InputRef } from 'antd'
@@ -441,7 +441,7 @@ const getDatePickerFilterProps = <T,>(
 
       const handleConfirm = () => {
         confirm()
-        setSearchValue(selectedKeys[0] as unknown as BaseDatePickerValue)
+        setSearchValue(selectedKeys[0])
         onFilterChange?.((prev) => {
           return _.set(_.cloneDeep(prev), dataIndex, selectedKeys[0])
         })
@@ -471,7 +471,7 @@ const getDatePickerFilterProps = <T,>(
           }}
         >
           <BaseDatePicker
-            value={selectedKeys[0] as unknown as BaseDatePickerValue}
+            value={selectedKeys[0]}
             onChange={(value) => {
               setSelectedKeys(value ? ([value] as unknown as Key[]) : [])
             }}
@@ -513,7 +513,7 @@ const getDateTimePickerFilterProps = <T,>(
 
       const handleConfirm = () => {
         confirm()
-        setSearchValue(selectedKeys[0] as unknown as BaseDateTimePickerValue)
+        setSearchValue(selectedKeys[0])
         onFilterChange?.((prev) => {
           return _.set(_.cloneDeep(prev), dataIndex, selectedKeys[0])
         })
@@ -543,7 +543,7 @@ const getDateTimePickerFilterProps = <T,>(
           }}
         >
           <BaseDateTimePicker
-            value={selectedKeys[0] as unknown as BaseDateTimePickerValue}
+            value={selectedKeys[0]}
             onChange={(value) => {
               setSelectedKeys(value ? ([value] as unknown as Key[]) : [])
             }}

@@ -1,0 +1,15 @@
+export enum EFieldType {
+  Input = 'input',
+  InputNumber = 'input-number',
+  InputPassword = 'input-password',
+  InputTextArea = 'input-text-area',
+  Select = 'select',
+  TreeSelect = 'tree-select',
+  Checkbox = 'checkbox',
+  Radio = 'radio',
+  Switch = 'switch',
+  DatePicker = 'date-picker',
+  DateTimePicker = 'date-time-picker',
+  DateRangePicker = 'date-range-picker',
+  TimePicker = 'time-picker',
+}

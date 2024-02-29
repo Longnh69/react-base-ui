@@ -1,4 +1,4 @@
-import BaseTypography from '@/components/base/typography/BaseTypography'
+import BaseTypography from '@/components/typography/BaseTypography'
 import { SettingOutlined } from '@ant-design/icons'
 import { DndContext, PointerSensor, closestCenter, useSensor, useSensors, type DragEndEvent } from '@dnd-kit/core'
 import { restrictToWindowEdges } from '@dnd-kit/modifiers'

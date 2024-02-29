@@ -26,6 +26,7 @@ module.exports = {
     'vite.config.ts',
     'build',
     'dist',
+    'lib',
   ],
   plugins: ['react', 'react-refresh', '@typescript-eslint/eslint-plugin'],
   rules: {

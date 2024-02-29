@@ -1,4 +1,4 @@
-import BaseForm from '@/components/base/form/BaseForm'
+import BaseForm from '@/components/form/BaseForm'
 import { Form, Table } from 'antd'
 import { twMerge } from 'tailwind-merge'
 import useBaseTable from '../../hooks/useBaseTable'
