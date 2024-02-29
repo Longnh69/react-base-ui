@@ -3,19 +3,6 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "files": [
-    "package.json",
-    "lib"
-  ],
-  "main": "./lib/index.umd.cjs",
-  "module": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./lib/index.es.js",
-      "require": "./lib/index.umd.js"
-    }
-  },
   "scripts": {
     "\n========== BUILDING ==========": "/*** RUN BUILD SOURCE ***/",
     "build:types": "tsc --build",
@@ -136,6 +123,5 @@
     "vite": "^5.1.2",
     "vite-tsconfig-paths": "^4.3.1",
     "vitest": "^1.2.2"
-  },
-  "license": "MIT"
+  }
 }
