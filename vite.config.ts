@@ -18,7 +18,6 @@ export default defineConfig(({ mode }) => {
       lib: {
         entry: resolve(__dirname, 'src/index.ts'),
         name: 'react-base-ui',
-        formats: ['es'],
         fileName: 'index',
       },
       outDir: './lib',
