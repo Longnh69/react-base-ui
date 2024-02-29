@@ -1,6 +1,6 @@
 import { twMerge } from 'tailwind-merge'
 import styles from './BasePreLoader.module.css'
-import { type PropsWithClassName } from '@/types/common.type'
+import { type PropsWithClassName } from '../../types/common.type'
 
 interface BasePreLoaderProps extends PropsWithClassName {}
 

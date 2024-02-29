@@ -1,4 +1,4 @@
-import { EFieldType } from '@/enums/field.enum'
+import { EFieldType } from '../../../../enums/field.enum'
 import { motion } from 'framer-motion'
 import _ from 'lodash'
 import BaseCheckboxGroup, { type BaseCheckboxGroupProps } from '../../../checkbox/BaseCheckboxGroup'

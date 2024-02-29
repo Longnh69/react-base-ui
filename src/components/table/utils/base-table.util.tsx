@@ -1,10 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import {
-  type BaseColumnGroupType,
-  type BaseColumnType,
-  type BaseColumnsType,
-} from '@/components/table/types/base-table-column.type'
-import { ESortOrder } from '@/enums/sorter.enum'
+import { type BaseColumnGroupType, type BaseColumnType, type BaseColumnsType } from '../types/base-table-column.type'
+import { ESortOrder } from '../../../enums/sorter.enum'
 import { CalendarOutlined, FilterOutlined, SearchOutlined } from '@ant-design/icons'
 import { Divider, Flex, Space, type InputRef } from 'antd'
 import { type CheckboxValueType } from 'antd/es/checkbox/Group'

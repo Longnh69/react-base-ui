@@ -1,4 +1,4 @@
-import { NO_IMAGE_DEFAULT } from '@/constants/image.constant'
+import { NO_IMAGE_DEFAULT } from '../../constants/image.constant'
 import { EyeOutlined } from '@ant-design/icons'
 import { Image, type ImageProps } from 'antd'
 import _ from 'lodash'

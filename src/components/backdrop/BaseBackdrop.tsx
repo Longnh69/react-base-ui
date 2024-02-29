@@ -1,6 +1,6 @@
 import { Space } from 'antd'
 import { useEffect, useLayoutEffect, useState } from 'react'
-import BaseSpin, { BaseSpinProps } from '../spin/BaseSpin'
+import BaseSpin, { type BaseSpinProps } from '../spin/BaseSpin'
 import BaseTypography from '../typography/BaseTypography'
 import useBackdropStore from './hooks/useBackdropStore'
 import { twMerge } from 'tailwind-merge'

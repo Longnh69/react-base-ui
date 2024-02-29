@@ -1,6 +1,6 @@
-import BaseForm from '@/components/form/BaseForm'
 import { Form, Table } from 'antd'
 import { twMerge } from 'tailwind-merge'
+import BaseForm from '../../../form/BaseForm'
 import useBaseTable from '../../hooks/useBaseTable'
 import { type BaseTableAreaProps } from '../../types/base-table-area.type'
 import BaseTableBodyCell from './BaseTableBodyCell'

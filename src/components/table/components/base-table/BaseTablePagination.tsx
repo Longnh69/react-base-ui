@@ -1,4 +1,4 @@
-import BasePagination from '@/components/pagination/BasePagination'
+import BasePagination from '../../../pagination/BasePagination'
 import { type BaseTablePaginationProps } from '../../types/base-table-pagination.type'
 
 export default function BaseTablePagination<T>(props: BaseTablePaginationProps<T>) {

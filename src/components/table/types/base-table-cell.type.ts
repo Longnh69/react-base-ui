@@ -1,4 +1,4 @@
-import { type EFieldType } from '@/enums/field.enum'
+import { type EFieldType } from '../../../enums/field.enum'
 import { type FormRule } from 'antd'
 import { type ThHTMLAttributes, type HTMLAttributes, type TdHTMLAttributes } from 'react'
 import { type BaseTableFieldProps, type DataIndex } from './base-table.type'

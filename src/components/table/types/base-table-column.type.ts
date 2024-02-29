@@ -1,5 +1,5 @@
-import { type EFieldType } from '@/enums/field.enum'
-import { type RequiredFields } from '@/helpers/type.helper'
+import { type EFieldType } from '../../../enums/field.enum'
+import { type RequiredFields } from '../../../helpers/type.helper'
 import { type FormRule } from 'antd'
 import { type ColumnType } from 'antd/es/table'
 import { type BaseTableFieldProps, type DataIndex } from './base-table.type'
