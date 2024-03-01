@@ -137,24 +137,12 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
-      colors: {
-        ...colors,
-      },
-      minWidth: {
-        ...minWidth,
-      },
-      maxWidth: {
-        ...maxWidth,
-      },
-      minHeight: {
-        ...minHeight,
-      },
-      backgroundImage: {
-        ...backgroundImage,
-      },
-      fontFamily: {
-        ...fontFamily,
-      },
+      colors,
+      minWidth,
+      maxWidth,
+      minHeight,
+      backgroundImage,
+      fontFamily,
     },
   },
   plugins: [
