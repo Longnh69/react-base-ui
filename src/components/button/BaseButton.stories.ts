@@ -22,7 +22,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
-    className: 'bg-red-600',
+    className: 'bg-light-596',
     children: 'Button',
   },
 }
