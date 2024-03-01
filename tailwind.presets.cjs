@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
@@ -132,8 +131,78 @@ const fontFamily = {
 }
 
 module.exports = {
-  important: true,
-  darkMode: 'class',
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
-  presets: ['./tailwind.presets.cjs'],
+  theme: {
+    extend: {
+      colors,
+      minWidth,
+      maxWidth,
+      minHeight,
+      backgroundImage,
+      fontFamily,
+    },
+  },
+  plugins: [
+    plugin(function ({ addUtilities, matchUtilities, theme }) {
+      addUtilities({
+        '.scrollbar': {
+          '&::-webkit-scrollbar': {
+            width: theme('spacing.2'),
+            backgroundColor: 'transparent',
+          },
+          '&::-webkit-scrollbar:horizontal': {
+            height: theme('spacing.2'),
+            backgroundColor: 'transparent',
+          },
+          '&::-webkit-scrollbar-track': {
+            backgroundColor: 'transparent',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            minHeight: '30%',
+            borderRadius: theme('borderRadius.2xl'),
+            borderWidth: theme('borderWidth.8'),
+            borderStyle: 'solid',
+            borderColor: 'transparent',
+            backgroundColor: theme('backgroundColor.light.596'),
+            '&:hover': {
+              backgroundColor: theme('backgroundColor.light.595'),
+            },
+          },
+          '&::-webkit-scrollbar-thumb:horizontal': {
+            minWidth: '30%',
+            borderRadius: theme('borderRadius.2xl'),
+            borderWidth: theme('borderWidth.8'),
+            borderStyle: 'solid',
+            borderColor: 'transparent',
+            backgroundColor: theme('backgroundColor.light.596'),
+            '&:hover': {
+              backgroundColor: theme('backgroundColor.light.595'),
+            },
+          },
+          '&::-webkit-scrollbar-corner': {
+            backgroundColor: 'transparent',
+          },
+        },
+      }),
+        matchUtilities(
+          {
+            'scrollbar-w': (value) => ({
+              '&::-webkit-scrollbar': {
+                width: value,
+              },
+            }),
+          },
+          { values: defaultTheme.spacing },
+        ),
+        matchUtilities(
+          {
+            'scrollbar-h': (value) => ({
+              '&::-webkit-scrollbar': {
+                height: value,
+              },
+            }),
+          },
+          { values: defaultTheme.spacing },
+        )
+    }),
+  ],
 }

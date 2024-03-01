@@ -23,6 +23,7 @@ module.exports = {
     'vite-env.d.ts',
     'postcss.config.cjs',
     'tailwind.config.cjs',
+    'tailwind.presets.cjs',
     'vite.config.ts',
     'build',
     'dist',
