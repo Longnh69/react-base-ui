@@ -17,6 +17,7 @@ export default function BaseTableArea<T extends Record<PropertyKey, any>>(props:
       <Table
         className={twMerge(
           `
+          [&_thead_tr_th]:text-primaryText
           w-full
           [&_.ant-table-body]:scrollbar
           [&_.ant-table-content]:scrollbar
