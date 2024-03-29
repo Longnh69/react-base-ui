@@ -16,12 +16,12 @@ export default forwardRef(function BaseMenu(props: BaseMenuProps, ref: Ref<MenuR
       ref={ref}
       className={twMerge(
         `
-          w-full border-none bg-white dark:bg-dark-999
-          [&_.ant-menu-item.ant-menu-item-selected]:dark:bg-transparent
-          [&_.ant-menu-item.ant-menu-item-selected]:dark:text-primary
-          [&_.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-open.ant-menu-submenu-selected>.ant-menu-submenu-title]:dark:text-primary
-          [&_.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-selected>.ant-menu-submenu-title]:dark:text-primary
-          [&_.ant-menu-submenu.ant-menu-submenu-vertical.ant-menu-submenu-selected>.ant-menu-submenu-title]:dark:text-primary
+          [&_.ant-menu-item.ant-menu-item-selected]:dark:text-primaryText [&_.ant-menu-submenu.ant-menu-submenu-vertical.ant-menu-submenu-selected>.ant-menu-submenu-title]:dark:text-primaryText w-full border-none
+          bg-white
+          dark:bg-dark-999
+          [&_.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-open.ant-menu-submenu-selected>.ant-menu-submenu-title]:dark:text-white
+          [&_.ant-menu-submenu.ant-menu-submenu-inline.ant-menu-submenu-selected>.ant-menu-submenu-title]:dark:text-white
+          [&_.ant-menu-submenu.ant-menu-submenu-vertical.ant-menu-submenu-selected>.ant-menu-submenu-title]:dark:bg-primary
           [&_.ant-menu.ant-menu-sub.ant-menu-inline]:dark:bg-dark-888
           [&_.ant-menu.ant-menu-sub.ant-menu-vertical]:dark:bg-dark-888
         `,
