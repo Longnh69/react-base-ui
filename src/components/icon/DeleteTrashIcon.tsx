@@ -12,5 +12,13 @@ const Trash = () => (
 )
 
 export default function DeleteTrashIcon(props: any) {
-  return <Icon {...props} component={Trash} />
+  return (
+    <Icon
+      {...props}
+      component={Trash}
+      style={{
+        fontSize: '80px',
+      }}
+    />
+  )
 }
