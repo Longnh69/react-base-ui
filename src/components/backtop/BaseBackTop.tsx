@@ -1,5 +1,5 @@
-import { BackTopProps, FloatButton, FloatButtonRef } from 'antd'
-import { Ref, forwardRef } from 'react'
+import { type BackTopProps, FloatButton, type FloatButtonRef } from 'antd'
+import { type Ref, forwardRef } from 'react'
 
 interface BaseBackTopProps extends BackTopProps {}
 

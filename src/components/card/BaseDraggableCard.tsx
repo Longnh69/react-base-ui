@@ -1,7 +1,7 @@
 import { HolderOutlined } from '@ant-design/icons'
 import { useSortable } from '@dnd-kit/sortable'
 import _ from 'lodash'
-import BaseButton from '../button/BaseButton'
+import BaseButton from '@/components/button/BaseButton'
 import BaseCard, { type BaseCardProps } from './BaseCard'
 
 interface BaseDraggableCardProps extends BaseCardProps {}

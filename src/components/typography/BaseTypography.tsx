@@ -2,7 +2,7 @@ import { Typography } from 'antd'
 import { type TypographyProps } from 'antd/es/typography/Typography'
 import _ from 'lodash'
 import { forwardRef, type Ref } from 'react'
-import BaseTooltip, { type BaseTooltipProps } from '../tooltip/BaseTooltip'
+import BaseTooltip, { type BaseTooltipProps } from '@/components/tooltip/BaseTooltip'
 import { twMerge } from 'tailwind-merge'
 
 interface BaseTypographyProps<T extends keyof JSX.IntrinsicElements> extends TypographyProps<T> {

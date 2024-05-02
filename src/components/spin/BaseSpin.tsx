@@ -1,4 +1,4 @@
-import { Spin, SpinProps } from 'antd'
+import { Spin, type SpinProps } from 'antd'
 import { twMerge } from 'tailwind-merge'
 
 export interface BaseSpinProps extends SpinProps {}

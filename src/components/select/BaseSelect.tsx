@@ -1,9 +1,9 @@
+import ExpandDownIcon from '@/components/icon/BaseExpandDownIcon'
 import { Select, type RefSelectProps, type SelectProps } from 'antd'
 import _ from 'lodash'
 import { forwardRef, type Ref } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
-import ExpandDownIcon from '../icon/BaseExpandDownIcon'
 
 export interface BaseSelectProps extends SelectProps {}
 

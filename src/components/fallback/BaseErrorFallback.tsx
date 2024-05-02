@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import BaseButton from '../button/BaseButton'
-import BaseTitle from '../typography/BaseTitle'
-import BaseTypography from '../typography/BaseTypography'
+import BaseButton from '@/components/button/BaseButton'
+import BaseTitle from '@/components/typography/BaseTitle'
+import BaseTypography from '@/components/typography/BaseTypography'
 
 interface BaseErrorFallbackProps {
   error: any
@@ -12,7 +12,7 @@ export default function BaseErrorFallback(_props: BaseErrorFallbackProps) {
   const { t } = useTranslation()
 
   return (
-    <div className='h-dvh flex w-full items-center justify-center bg-white dark:bg-dark-888'>
+    <div className='flex h-dvh w-full items-center justify-center bg-white dark:bg-dark-888'>
       <div className='flex flex-col gap-8'>
         <div>
           <BaseTitle className='text-dark-113'>Oops!</BaseTitle>

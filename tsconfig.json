@@ -21,7 +21,10 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Source */
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]
