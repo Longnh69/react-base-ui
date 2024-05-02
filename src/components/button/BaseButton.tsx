@@ -2,7 +2,7 @@ import { Button, type ButtonProps } from 'antd'
 import _ from 'lodash'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
-import BaseTooltip, { type BaseTooltipProps } from '@/components/tooltip/BaseTooltip'
+import BaseTooltip, { type BaseTooltipProps } from '../tooltip/BaseTooltip'
 
 type Color = 'white' | 'red' | 'green' | 'blue' | 'yellow' | 'cyan'
 

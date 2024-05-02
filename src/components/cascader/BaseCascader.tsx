@@ -2,7 +2,7 @@ import { Cascader, type CascaderProps } from 'antd'
 import { type BaseOptionType, type CascaderRef } from 'antd/es/cascader'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
-import DownArrowIcon from '@/components/icon/BaseDownArrowIcon'
+import DownArrowIcon from '../icon/BaseDownArrowIcon'
 
 type BaseCascaderProps<T extends BaseOptionType> = CascaderProps<T> & {}
 

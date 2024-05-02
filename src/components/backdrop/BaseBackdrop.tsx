@@ -1,9 +1,9 @@
 import { Space } from 'antd'
 import { useEffect, useLayoutEffect, useState } from 'react'
-import BaseSpin, { type BaseSpinProps } from '@/components/spin/BaseSpin'
-import BaseTypography from '@/components/typography/BaseTypography'
-import useBackdropStore from './hooks/useBackdropStore'
 import { twMerge } from 'tailwind-merge'
+import BaseSpin, { type BaseSpinProps } from '../spin/BaseSpin'
+import BaseTypography from '../typography/BaseTypography'
+import useBackdropStore from './hooks/useBackdropStore'
 
 interface BaseBackdropProps extends BaseSpinProps {}
 

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import BaseButton, { type BaseButtonProps } from './BaseButton'
-import BaseEditIcon from '@/components/icon/BaseEditIcon'
+import BaseEditIcon from '../icon/BaseEditIcon'
 import { twMerge } from 'tailwind-merge'
 import { CloseCircleOutlined, SaveOutlined } from '@ant-design/icons'
 

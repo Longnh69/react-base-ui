@@ -1,13 +1,13 @@
-import BaseButton from '@/components/button/BaseButton'
-import NavigateNextIcon from '@/components/icon/BaseNavigateNextIcon'
-import NavigatePreviousIcon from '@/components/icon/BaseNavigatePreviousIcon'
-import BaseSelect from '@/components/select/BaseSelect'
-import BaseText from '@/components/typography/BaseText'
 import { Flex, Pagination, Select, Space, type PaginationProps } from 'antd'
 import _ from 'lodash'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import BaseButton from '../button/BaseButton'
+import NavigateNextIcon from '../icon/BaseNavigateNextIcon'
+import NavigatePreviousIcon from '../icon/BaseNavigatePreviousIcon'
+import BaseSelect from '../select/BaseSelect'
+import BaseText from '../typography/BaseText'
 
 interface BasePaginationProps extends PaginationProps {}
 

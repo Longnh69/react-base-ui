@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import BaseButton from '@/components/button/BaseButton'
-import BaseTitle from '@/components/typography/BaseTitle'
-import BaseTypography from '@/components/typography/BaseTypography'
+import BaseButton from '../button/BaseButton'
+import BaseTitle from '../typography/BaseTitle'
+import BaseTypography from '../typography/BaseTypography'
 
 interface BaseErrorFallbackProps {
   error: any
