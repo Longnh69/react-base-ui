@@ -1,11 +1,10 @@
 import { Popover, type PopoverProps } from 'antd'
-import { type TooltipRef } from 'antd/es/tooltip'
-import { forwardRef, type LegacyRef } from 'react'
+import { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 interface BasePopoverProps extends PopoverProps {}
 
-export default forwardRef(function BasePopover(props: BasePopoverProps, ref: LegacyRef<TooltipRef> | undefined) {
+export default forwardRef(function BasePopover(props: BasePopoverProps, ref) {
   const { className, ...restProps } = props
 
   return (

@@ -1,15 +1,13 @@
 import { Switch, type SwitchProps } from 'antd'
-import { type LegacyRef, forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export interface BaseSwitchProps extends SwitchProps {}
 
-export default forwardRef(function BaseSwitch(props: BaseSwitchProps, ref: LegacyRef<HTMLButtonElement> | undefined) {
+export default function BaseSwitch(props: BaseSwitchProps) {
   const { className, ...restProps } = props
 
   return (
     <Switch
-      ref={ref}
       className={twMerge(
         `
 
@@ -19,4 +17,4 @@ export default forwardRef(function BaseSwitch(props: BaseSwitchProps, ref: Legac
       {...restProps}
     />
   )
-})
+}
