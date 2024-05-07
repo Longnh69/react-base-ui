@@ -5,7 +5,7 @@ import { CalendarOutlined, FilterOutlined, SearchOutlined } from '@ant-design/ic
 import { Divider, Flex, Space, type InputRef } from 'antd'
 import { type CheckboxValueType } from 'antd/es/checkbox/Group'
 import { type SorterResult } from 'antd/es/table/interface'
-import _ from 'lodash'
+import _, { PropertyPath } from 'lodash'
 import { useRef, useState, type Key } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useUpdateEffect } from 'react-use'
@@ -57,7 +57,7 @@ const getColumnMergedCell = <T,>(columns: BaseColumnsType<T>, isEditing?: ((reco
             ...((): BaseTableBodyCellProps => {
               if (
                 _.isBoolean(editable) ||
-                (_.isFunction(editable) && editable(dataIndex ? _.get(record, dataIndex) : null, record, index))
+                (_.isFunction(editable) && editable(dataIndex ? _.get(record, dataIndex as PropertyPath) : null, record, index))
               ) {
                 return {
                   editable: true,
