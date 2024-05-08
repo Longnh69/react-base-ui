@@ -1,13 +1,12 @@
 import { Tooltip } from 'antd'
 import { type TooltipPropsWithOverlay } from 'antd/es/tooltip'
-import { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export interface BaseTooltipProps extends TooltipPropsWithOverlay {
   hidden?: boolean
 }
 
-export default forwardRef(function BaseTooltip(props: BaseTooltipProps, ref) {
+export default function BaseTooltip(props: BaseTooltipProps) {
   const { hidden, className, children, ...restProps } = props
 
   if (hidden) {
@@ -16,7 +15,6 @@ export default forwardRef(function BaseTooltip(props: BaseTooltipProps, ref) {
 
   return (
     <Tooltip
-      ref={ref}
       className={twMerge(
         `
           
@@ -28,4 +26,4 @@ export default forwardRef(function BaseTooltip(props: BaseTooltipProps, ref) {
       {children}
     </Tooltip>
   )
-})
+}
