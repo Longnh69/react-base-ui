@@ -1,23 +1,23 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { type BaseColumnGroupType, type BaseColumnType, type BaseColumnsType } from '../types/base-table-column.type'
-import { ESortOrder } from '../../../enums/sorter.enum'
 import { CalendarOutlined, FilterOutlined, SearchOutlined } from '@ant-design/icons'
 import { Divider, Flex, Space, type InputRef } from 'antd'
-import { type CheckboxValueType } from 'antd/es/checkbox/Group'
 import { type SorterResult } from 'antd/es/table/interface'
 import _, { PropertyPath } from 'lodash'
 import { useRef, useState, type Key } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useUpdateEffect } from 'react-use'
 import { twMerge } from 'tailwind-merge'
+import { ESortOrder } from '../../../enums/sorter.enum'
 import BaseButton from '../../button/BaseButton'
-import BaseCheckboxGroup from '../../checkbox/BaseCheckboxGroup'
+import BaseCheckboxGroup, { type BaseCheckboxGroupProps } from '../../checkbox/BaseCheckboxGroup'
 import BaseInput from '../../input/BaseInput'
 import BaseDatePicker, { type BaseDatePickerValue } from '../../picker/BaseDatePicker'
 import BaseDateRangePicker, { type BaseDateRangePickerValue } from '../../picker/BaseDateRangePicker'
 import BaseDateTimePicker, { type BaseDateTimePickerValue } from '../../picker/BaseDateTimePicker'
 import BaseRadioGroup from '../../radio/BaseRadioGroup'
 import BaseSelect from '../../select/BaseSelect'
+import { type BaseTableBodyCellProps } from '../types/base-table-cell.type'
+import { type BaseColumnGroupType, type BaseColumnType, type BaseColumnsType } from '../types/base-table-column.type'
 import {
   type BaseTableCheckboxFilterParams,
   type BaseTableDatePickerFilterParams,
@@ -28,7 +28,6 @@ import {
   type BaseTableSelectFilterParams,
 } from '../types/base-table-filter.type'
 import { type BaseTableSorterParams } from '../types/base-table-sorter.type'
-import { type BaseTableBodyCellProps } from '../types/base-table-cell.type'
 
 const getColumnMergedCell = <T,>(columns: BaseColumnsType<T>, isEditing?: ((record: T) => boolean) | null) => {
   return _.map(columns, (column, columnIndex) => {
@@ -57,7 +56,8 @@ const getColumnMergedCell = <T,>(columns: BaseColumnsType<T>, isEditing?: ((reco
             ...((): BaseTableBodyCellProps => {
               if (
                 _.isBoolean(editable) ||
-                (_.isFunction(editable) && editable(dataIndex ? _.get(record, dataIndex as PropertyPath) : null, record, index))
+                (_.isFunction(editable) &&
+                  editable(dataIndex ? _.get(record, dataIndex as PropertyPath) : null, record, index))
               ) {
                 return {
                   editable: true,
@@ -248,12 +248,7 @@ const getSelectFilterProps = <T,>(baseTableSelectFilterParams: BaseTableSelectFi
             }}
             mode={mode}
             autoClearSearchValue
-            className={twMerge(
-              `
-                max-w-80
-              `,
-              className,
-            )}
+            className={twMerge(`max-w-80`, className)}
             {...restProps}
           />
           <Divider className='m-0' />
@@ -286,13 +281,13 @@ const getCheckboxFilterProps = <T,>(
 
   return {
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters, close, visible }) => {
-      const [searchValue, setSearchValue] = useState<CheckboxValueType[]>([])
+      const [searchValue, setSearchValue] = useState<BaseCheckboxGroupProps['value']>([])
 
       const { t } = useTranslation()
 
       const handleConfirm = () => {
         confirm()
-        setSearchValue(selectedKeys as CheckboxValueType[])
+        setSearchValue(selectedKeys as BaseCheckboxGroupProps['value'])
         onFilterChange?.((prev) => {
           return _.set(_.cloneDeep(prev), dataIndex, selectedKeys)
         })
@@ -322,7 +317,7 @@ const getCheckboxFilterProps = <T,>(
           }}
         >
           <BaseCheckboxGroup
-            value={selectedKeys as CheckboxValueType[]}
+            value={selectedKeys as BaseCheckboxGroupProps['value']}
             onChange={(value) => {
               setSelectedKeys(value as Key[])
             }}
