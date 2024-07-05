@@ -1,20 +1,24 @@
 /* eslint-disable no-useless-escape */
-import { Alignment } from '@ckeditor/ckeditor5-alignment'
-import { Autoformat } from '@ckeditor/ckeditor5-autoformat'
-import { Bold, Code, Italic, Strikethrough, Subscript, Superscript, Underline } from '@ckeditor/ckeditor5-basic-styles'
-import { BlockQuote } from '@ckeditor/ckeditor5-block-quote'
-import { CodeBlock } from '@ckeditor/ckeditor5-code-block'
-import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic'
-import { Essentials } from '@ckeditor/ckeditor5-essentials'
-import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace'
-import { Font } from '@ckeditor/ckeditor5-font'
-import { Heading } from '@ckeditor/ckeditor5-heading'
-import { Highlight } from '@ckeditor/ckeditor5-highlight'
-import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line'
-import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed'
-import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support'
+import { CKEditor } from '@ckeditor/ckeditor5-react'
 import {
+  Alignment,
+  Autoformat,
   AutoImage,
+  AutoLink,
+  Base64UploadAdapter,
+  BlockQuote,
+  Bold,
+  ClassicEditor,
+  Code,
+  CodeBlock,
+  Essentials,
+  FindAndReplace,
+  Font,
+  GeneralHtmlSupport,
+  Heading,
+  Highlight,
+  HorizontalLine,
+  HtmlEmbed,
   Image,
   ImageCaption,
   ImageInsert,
@@ -22,30 +26,35 @@ import {
   ImageStyle,
   ImageToolbar,
   ImageUpload,
+  Indent,
+  IndentBlock,
+  Italic,
+  Link,
+  List,
+  MediaEmbed,
+  Mention,
+  Paragraph,
   PictureEditing,
-} from '@ckeditor/ckeditor5-image'
-import { Indent, IndentBlock } from '@ckeditor/ckeditor5-indent'
-import { AutoLink, Link } from '@ckeditor/ckeditor5-link'
-import { DocumentList, DocumentListProperties, TodoDocumentList } from '@ckeditor/ckeditor5-list'
-import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed'
-import { Mention } from '@ckeditor/ckeditor5-mention'
-import { Paragraph } from '@ckeditor/ckeditor5-paragraph'
-import { CKEditor } from '@ckeditor/ckeditor5-react'
-import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format'
-import { ShowBlocks } from '@ckeditor/ckeditor5-show-blocks'
-import { SourceEditing } from '@ckeditor/ckeditor5-source-editing'
-import { SpecialCharacters, SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters'
-import {
+  RemoveFormat,
+  ShowBlocks,
+  SourceEditing,
+  SpecialCharacters,
+  SpecialCharactersEssentials,
+  Strikethrough,
+  Subscript,
+  Superscript,
   Table,
   TableCaption,
   TableCellProperties,
   TableColumnResize,
   TableProperties,
   TableToolbar,
-} from '@ckeditor/ckeditor5-table'
-import { TextTransformation } from '@ckeditor/ckeditor5-typing'
-import { Base64UploadAdapter } from '@ckeditor/ckeditor5-upload'
-import { WordCount } from '@ckeditor/ckeditor5-word-count'
+  TextTransformation,
+  TodoDocumentList,
+  Underline,
+  WordCount,
+} from 'ckeditor5'
+import 'ckeditor5/ckeditor5.css'
 import { twMerge } from 'tailwind-merge'
 
 export default function BaseEditor() {
@@ -121,8 +130,7 @@ export default function BaseEditor() {
             Bold,
             Code,
             CodeBlock,
-            DocumentList,
-            DocumentListProperties,
+            List,
             Essentials,
             FindAndReplace,
             Font,
