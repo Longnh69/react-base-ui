@@ -7,5 +7,16 @@ interface BaseCollapseProps extends CollapseProps {}
 export default forwardRef(function BaseCollapse(props: BaseCollapseProps, ref: LegacyRef<HTMLDivElement> | undefined) {
   const { className, ...restProps } = props
 
-  return <Collapse ref={ref} className={twMerge(` `, className)} {...restProps} />
+  return (
+    <Collapse
+      ref={ref}
+      className={twMerge(
+        `
+           
+        `,
+        className,
+      )}
+      {...restProps}
+    />
+  )
 })
