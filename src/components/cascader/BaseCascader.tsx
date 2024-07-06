@@ -1,8 +1,8 @@
 import { Cascader, type CascaderProps } from 'antd'
 import { type BaseOptionType, type CascaderRef } from 'antd/es/cascader'
+import BaseKeyboardArrowDownIcon from 'components/icon/BaseKeyboardArrowDownIcon'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
-import DownArrowIcon from '../icon/BaseDownArrowIcon'
 
 type BaseCascaderProps<T extends BaseOptionType> = CascaderProps<T> & {}
 
@@ -21,7 +21,7 @@ export default forwardRef(function BaseCascader<T extends BaseOptionType>(
         `,
         className,
       )}
-      suffixIcon={<DownArrowIcon className='pointer-events-none' />}
+      suffixIcon={<BaseKeyboardArrowDownIcon className='pointer-events-none' />}
       {...restProps}
     />
   )

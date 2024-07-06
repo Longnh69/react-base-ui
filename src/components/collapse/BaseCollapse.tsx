@@ -1,4 +1,6 @@
 import { Collapse, type CollapseProps } from 'antd'
+import BaseKeyboardArrowDownIcon from 'components/icon/BaseKeyboardArrowDownIcon'
+import BaseKeyboardArrowRightIcon from 'components/icon/BaseKeyboardArrowRightIcon'
 import { forwardRef, LegacyRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -16,6 +18,15 @@ export default forwardRef(function BaseCollapse(props: BaseCollapseProps, ref: L
         `,
         className,
       )}
+      expandIcon={(panelProps) => {
+        const { isActive } = panelProps
+
+        if (isActive) {
+          return <BaseKeyboardArrowDownIcon />
+        }
+
+        return <BaseKeyboardArrowRightIcon />
+      }}
       {...restProps}
     />
   )

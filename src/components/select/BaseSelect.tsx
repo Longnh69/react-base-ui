@@ -1,9 +1,9 @@
 import { Select, type RefSelectProps, type SelectProps } from 'antd'
+import BaseKeyboardArrowDownIcon from 'components/icon/BaseKeyboardArrowDownIcon'
 import _ from 'lodash'
 import { forwardRef, type Ref } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
-import ExpandDownIcon from '../icon/BaseExpandDownIcon'
 
 export interface BaseSelectProps extends SelectProps {}
 
@@ -15,7 +15,7 @@ export default forwardRef(function BaseSelect(props: BaseSelectProps, ref: Ref<R
     <Select
       ref={ref}
       placeholder={t('choose', { name: t('value') })}
-      suffixIcon={<ExpandDownIcon className='pointer-events-none' />}
+      suffixIcon={<BaseKeyboardArrowDownIcon className='pointer-events-none' />}
       filterOption={(inputValue: string, option) => {
         const inputValueLowerCase = inputValue.toLowerCase()
         const { children, label, value } = option ?? {}

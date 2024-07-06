@@ -2,7 +2,7 @@ import Icon from '@ant-design/icons'
 import { type CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon'
 import { twMerge } from 'tailwind-merge'
 
-export default function BaseExpandDownIcon(props: Partial<CustomIconComponentProps>) {
+export default function BaseKeyboardArrowRightIcon(props: Partial<CustomIconComponentProps>) {
   const { className, ...restProps } = props
 
   return (
@@ -15,8 +15,8 @@ export default function BaseExpandDownIcon(props: Partial<CustomIconComponentPro
       )}
       {...restProps}
       component={() => (
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 45 40' fill='currentColor'>
-          <path d='M24 30.75 12 18.75 14.15 16.6 24 26.5 33.85 16.65 36 18.8Z' />
+        <svg xmlns='http://www.w3.org/2000/svg' height='20px' viewBox='0 -960 960 960' width='20px' fill='currentColor'>
+          <path d='M522-480 333-669l51-51 240 240-240 240-51-51 189-189Z' />
         </svg>
       )}
     />
