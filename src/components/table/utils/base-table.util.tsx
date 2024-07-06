@@ -643,13 +643,13 @@ const getParsedSorter = <T,>(sorter: SorterResult<T> | Array<SorterResult<T>>, d
     switch (order) {
       case 'ascend': {
         return {
-          [key]: ESortOrder.asc,
+          [`${key}`]: ESortOrder.ASC,
         }
       }
 
       case 'descend': {
         return {
-          [key]: ESortOrder.desc,
+          [`${key}`]: ESortOrder.DESC,
         }
       }
 
