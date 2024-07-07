@@ -4,7 +4,11 @@ import BaseKeyboardArrowRightIcon from 'components/icon/BaseKeyboardArrowRightIc
 import { forwardRef, LegacyRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface BaseCollapseProps extends CollapseProps {}
+export type BaseCollapseItem = Required<CollapseProps>['items'][number]
+
+export type BaseCollapseItems = Required<CollapseProps>['items']
+
+export interface BaseCollapseProps extends CollapseProps {}
 
 export default forwardRef(function BaseCollapse(props: BaseCollapseProps, ref: LegacyRef<HTMLDivElement> | undefined) {
   const { className, ...restProps } = props
