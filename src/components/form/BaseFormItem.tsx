@@ -1,7 +1,12 @@
 import { Form, type FormItemProps } from 'antd'
+import { RuleObject } from 'antd/es/form'
 import { twMerge } from 'tailwind-merge'
 
-interface BaseFormItemProps extends FormItemProps {
+export type BaseRuleValidator = RuleObject['validator']
+
+export type BaseRuleValidators = NonNullable<BaseRuleValidator>[]
+
+export interface BaseFormItemProps extends FormItemProps {
   requiredMarkPosition?: 'left' | 'right'
   noLabel?: boolean
 }
