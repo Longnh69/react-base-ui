@@ -1,6 +1,6 @@
 import { Cascader, type CascaderProps } from 'antd'
 import { type BaseOptionType, type CascaderRef } from 'antd/es/cascader'
-import BaseKeyboardArrowDownIcon from 'components/icon/BaseKeyboardArrowDownIcon'
+import BaseKeyboardArrowDownIcon from '../icon/BaseKeyboardArrowDownIcon'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 

@@ -1,5 +1,5 @@
 import { Select, type RefSelectProps, type SelectProps } from 'antd'
-import BaseKeyboardArrowDownIcon from 'components/icon/BaseKeyboardArrowDownIcon'
+import BaseKeyboardArrowDownIcon from '../icon/BaseKeyboardArrowDownIcon'
 import _ from 'lodash'
 import { forwardRef, type Ref } from 'react'
 import { useTranslation } from 'react-i18next'

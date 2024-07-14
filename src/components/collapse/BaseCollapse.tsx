@@ -1,6 +1,6 @@
 import { Collapse, type CollapseProps } from 'antd'
-import BaseKeyboardArrowDownIcon from 'components/icon/BaseKeyboardArrowDownIcon'
-import BaseKeyboardArrowRightIcon from 'components/icon/BaseKeyboardArrowRightIcon'
+import BaseKeyboardArrowDownIcon from '../icon/BaseKeyboardArrowDownIcon'
+import BaseKeyboardArrowRightIcon from '../icon/BaseKeyboardArrowRightIcon'
 import { forwardRef, LegacyRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
