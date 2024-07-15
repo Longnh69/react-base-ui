@@ -23,7 +23,8 @@ export default function BaseFormItem(props: BaseFormItemProps) {
               requiredMarkPosition === 'right' &&
                 `
                   [&_.ant-form-item-label>label.ant-form-item-required]:before:absolute 
-                  [&_.ant-form-item-label>label.ant-form-item-required]:before:-right-2
+                  [&_.ant-form-item-label>label.ant-form-item-required]:before:-right-1
+                  [&_.ant-form-item-label>label.ant-form-item-required]:before:-top-0
                   [&_.ant-form-item-label>label.ant-form-item-required]:before:content-['*']
                 `,
             ]

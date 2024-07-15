@@ -50,14 +50,16 @@ import {
   TableProperties,
   TableToolbar,
   TextTransformation,
-  TodoDocumentList,
   Underline,
   WordCount,
 } from 'ckeditor5'
 import 'ckeditor5/ckeditor5.css'
+import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
 
 export default function BaseEditor() {
+  const { t } = useTranslation()
+
   return (
     <div
       className={twMerge(
@@ -119,7 +121,7 @@ export default function BaseEditor() {
       <CKEditor
         editor={ClassicEditor}
         config={{
-          placeholder: 'Type or paste your content here!',
+          placeholder: t('enter', { name: t('content'), defaultValue: 'Nhập nội dung' }),
           plugins: [
             Alignment,
             AutoImage,
@@ -170,43 +172,42 @@ export default function BaseEditor() {
             TableProperties,
             TableToolbar,
             TextTransformation,
-            TodoDocumentList,
             Underline,
             WordCount,
           ],
           toolbar: {
             items: [
-              'undo',
-              'redo',
-              '|',
-              'exportPdf',
-              'exportWord',
-              'importWord',
-              '|',
-              'showBlocks',
-              'formatPainter',
-              'findAndReplace',
-              'selectAll',
-              'wproofreader',
-              '|',
-              'heading',
-              '|',
-              'style',
-              '|',
-              'fontSize',
-              'fontFamily',
-              'fontColor',
-              'fontBackgroundColor',
-              '-',
+              // 'undo',
+              // 'redo',
+              // '|',
+              // 'exportPdf',
+              // 'exportWord',
+              // 'importWord',
+              // '|',
+              // 'showBlocks',
+              // 'formatPainter',
+              // 'findAndReplace',
+              // 'selectAll',
+              // 'wproofreader',
+              // '|',
+              // 'heading',
+              // '|',
+              // 'style',
+              // '|',
+              // 'fontSize',
+              // 'fontFamily',
+              // 'fontColor',
+              // 'fontBackgroundColor',
+              // '-',
               'bold',
               'italic',
               'underline',
-              {
-                label: 'Formatting',
-                icon: 'text',
-                items: ['strikethrough', 'subscript', 'superscript', 'code', 'horizontalLine', '|', 'removeFormat'],
-              },
-              'specialCharacters',
+              // {
+              //   label: 'Formatting',
+              //   icon: 'text',
+              //   items: ['strikethrough', 'subscript', 'superscript', 'code', 'horizontalLine', '|', 'removeFormat'],
+              // },
+              // 'specialCharacters',
               'pageBreak',
               '|',
               '|',
@@ -219,11 +220,11 @@ export default function BaseEditor() {
               'insertTable',
               'tableOfContents',
               'insertTemplate',
-              {
-                label: 'Insert',
-                icon: 'plus',
-                items: ['highlight', 'blockQuote', 'mediaEmbed', 'codeBlock', 'htmlEmbed'],
-              },
+              // {
+              //   label: 'Insert',
+              //   icon: 'plus',
+              //   items: ['highlight', 'blockQuote', 'mediaEmbed', 'codeBlock', 'htmlEmbed'],
+              // },
               '|',
               'alignment',
               '|',
@@ -232,8 +233,8 @@ export default function BaseEditor() {
               'todoList',
               'outdent',
               'indent',
-              '|',
-              'sourceEditing',
+              // '|',
+              // 'sourceEditing',
             ],
             shouldNotGroupWhenFull: true,
           },
@@ -326,7 +327,7 @@ export default function BaseEditor() {
             ],
           },
         }}
-        data='<p>Hello from CKEditor&nbsp;5!</p>'
+        data='<p></p>'
         onReady={(editor) => {
           console.log('Editor is ready to use!', editor)
         }}
