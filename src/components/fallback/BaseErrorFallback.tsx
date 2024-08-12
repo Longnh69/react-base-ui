@@ -3,7 +3,7 @@ import BaseButton from '../button/BaseButton'
 import BaseTitle from '../typography/BaseTitle'
 import BaseTypography from '../typography/BaseTypography'
 
-interface BaseErrorFallbackProps {
+export interface BaseErrorFallbackProps {
   error: any
   resetErrorBoundary: any
 }

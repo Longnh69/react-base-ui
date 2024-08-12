@@ -5,7 +5,7 @@ import BaseSpin, { type BaseSpinProps } from '../spin/BaseSpin'
 import BaseTypography from '../typography/BaseTypography'
 import useBackdropStore from './hooks/useBackdropStore'
 
-interface BaseBackdropProps extends BaseSpinProps {}
+export interface BaseBackdropProps extends BaseSpinProps {}
 
 export default function BaseBackdrop(props: BaseBackdropProps) {
   const { isOpenBackdrop, isCountBackdrop, showBackdropMessage = '', setBackdrop } = useBackdropStore()

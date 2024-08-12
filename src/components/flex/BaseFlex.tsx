@@ -1,13 +1,13 @@
-import { Drawer, type DrawerProps } from 'antd'
+import { Flex, FlexProps } from 'antd'
 import { twMerge } from 'tailwind-merge'
 
-export interface BaseDrawerProps extends DrawerProps {}
+export interface BaseFlexProps extends FlexProps {}
 
-export default function BaseDrawer(props: BaseDrawerProps) {
+export default function BaseFlex(props: BaseFlexProps) {
   const { className, ...restProps } = props
 
   return (
-    <Drawer
+    <Flex
       className={twMerge(
         `
 

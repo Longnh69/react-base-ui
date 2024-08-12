@@ -2,7 +2,7 @@ import Particles, { type IParticlesProps, initParticlesEngine } from '@tsparticl
 import { useEffect, useState } from 'react'
 import { loadFull } from 'tsparticles'
 
-interface BaseParticlesProps extends IParticlesProps {}
+export interface BaseParticlesProps extends IParticlesProps {}
 
 export default function BaseParticles(props: BaseParticlesProps) {
   const [init, setInit] = useState(false)

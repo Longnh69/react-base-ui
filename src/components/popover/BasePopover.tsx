@@ -1,7 +1,7 @@
 import { Popover, type PopoverProps } from 'antd'
 import { twMerge } from 'tailwind-merge'
 
-interface BasePopoverProps extends PopoverProps {}
+export interface BasePopoverProps extends PopoverProps {}
 
 export default function BasePopover(props: BasePopoverProps) {
   const { className, ...restProps } = props

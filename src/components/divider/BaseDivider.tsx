@@ -1,13 +1,13 @@
-import { Drawer, type DrawerProps } from 'antd'
+import { Divider, DividerProps } from 'antd'
 import { twMerge } from 'tailwind-merge'
 
-export interface BaseDrawerProps extends DrawerProps {}
+export interface BaseDividerProps extends DividerProps {}
 
-export default function BaseDrawer(props: BaseDrawerProps) {
+export default function BaseDivider(props: BaseDividerProps) {
   const { className, ...restProps } = props
 
   return (
-    <Drawer
+    <Divider
       className={twMerge(
         `
 

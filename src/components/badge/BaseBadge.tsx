@@ -1,6 +1,6 @@
 import { Badge, type BadgeProps } from 'antd'
 
-interface BaseBadgeProps extends BadgeProps {
+export interface BaseBadgeProps extends BadgeProps {
   variant?: 'primary' | 'info' | 'succeeded' | 'failed' | 'default'
 }
 

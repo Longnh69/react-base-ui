@@ -4,7 +4,7 @@ import _ from 'lodash'
 import BaseButton from '../button/BaseButton'
 import BaseCard, { type BaseCardProps } from './BaseCard'
 
-interface BaseDraggableCardProps extends BaseCardProps {}
+export interface BaseDraggableCardProps extends BaseCardProps {}
 
 export default function BaseDraggableCard(props: BaseDraggableCardProps) {
   const { id, actions, ...restProps } = props

@@ -2,7 +2,7 @@ import { Tag, type TagProps } from 'antd'
 import { type Ref, forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface BaseTagProps extends TagProps {
+export interface BaseTagProps extends TagProps {
   isMargin?: boolean
 }
 

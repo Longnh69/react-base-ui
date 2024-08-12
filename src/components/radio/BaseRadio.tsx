@@ -2,7 +2,7 @@ import { Radio, type CheckboxRef, type RadioProps } from 'antd'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface BaseRadioProps extends RadioProps {}
+export interface BaseRadioProps extends RadioProps {}
 
 export default forwardRef(function BaseRadio(props: BaseRadioProps, ref: Ref<CheckboxRef> | null) {
   const { className, ...restProps } = props

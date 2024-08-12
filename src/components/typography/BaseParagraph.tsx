@@ -4,7 +4,7 @@ import { type TypographyProps } from 'antd/es/typography/Typography'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface BaseParagraphProps extends TypographyProps<any>, ParagraphProps {}
+export interface BaseParagraphProps extends TypographyProps<any>, ParagraphProps {}
 
 const { Paragraph } = Typography
 

@@ -5,7 +5,7 @@ import { forwardRef, type Ref } from 'react'
 import BaseTooltip, { type BaseTooltipProps } from '../tooltip/BaseTooltip'
 import { twMerge } from 'tailwind-merge'
 
-interface BaseTypographyProps<T extends keyof JSX.IntrinsicElements> extends TypographyProps<T> {
+export interface BaseTypographyProps<T extends keyof JSX.IntrinsicElements> extends TypographyProps<T> {
   tooltipProps?: BaseTooltipProps
 }
 

@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge'
 
 type Variant = 'missing'
 
-interface BaseEmptyProps extends EmptyProps {
+export interface BaseEmptyProps extends EmptyProps {
   variant?: Variant
 }
 

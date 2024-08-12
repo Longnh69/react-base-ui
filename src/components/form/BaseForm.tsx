@@ -2,7 +2,7 @@ import { Form, type FormInstance, type FormProps } from 'antd'
 import { forwardRef, type ReactNode, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface BaseFormProps extends FormProps {
+export interface BaseFormProps extends FormProps {
   children: ReactNode
 }
 

@@ -9,7 +9,7 @@ import NavigatePreviousIcon from '../icon/BaseNavigatePreviousIcon'
 import BaseSelect from '../select/BaseSelect'
 import BaseText from '../typography/BaseText'
 
-interface BasePaginationProps extends PaginationProps {}
+export interface BasePaginationProps extends PaginationProps {}
 
 const { Option } = Select
 

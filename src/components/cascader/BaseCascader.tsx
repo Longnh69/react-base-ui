@@ -4,7 +4,7 @@ import BaseKeyboardArrowDownIcon from '../icon/BaseKeyboardArrowDownIcon'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-type BaseCascaderProps<T extends BaseOptionType> = CascaderProps<T> & {}
+export type BaseCascaderProps<T extends BaseOptionType> = CascaderProps<T> & {}
 
 export default forwardRef(function BaseCascader<T extends BaseOptionType>(
   props: BaseCascaderProps<T>,

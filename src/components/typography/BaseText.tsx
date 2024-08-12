@@ -4,7 +4,7 @@ import { type TypographyProps } from 'antd/es/typography/Typography'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface BaseTextProps extends TypographyProps<any>, TextProps {}
+export interface BaseTextProps extends TypographyProps<any>, TextProps {}
 
 const { Text } = Typography
 

@@ -3,7 +3,7 @@ import { EyeOutlined } from '@ant-design/icons'
 import { Image, type ImageProps } from 'antd'
 import _ from 'lodash'
 
-interface BaseImageProps extends ImageProps {}
+export interface BaseImageProps extends ImageProps {}
 
 export default function BaseImage(props: BaseImageProps) {
   const { preview, ...restProps } = props
