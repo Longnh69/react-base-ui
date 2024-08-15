@@ -14,8 +14,11 @@ import { type BaseSelectProps } from '../../select/BaseSelect'
 import { type BaseTreeSelectProps } from '../../select/BaseTreeSelect'
 import { type BaseSwitchProps } from '../../switch/BaseSwitch'
 import { type BaseTableToolbarProps } from './base-table-toolbar.type'
+import { type AnyObject } from 'antd/es/_util/type'
 
-export type DataIndex<T = any> = GetProp<TableColumnProps<T>, 'dataIndex'>
+type TAnyObject<T> = AnyObject & T & {}
+
+export type DataIndex<T = any> = GetProp<TableColumnProps<TAnyObject<T>>, 'dataIndex'>
 
 export type BaseTableProps<T> = TableProps<T> & {
   toolbar?: BaseTableToolbarProps<T>
