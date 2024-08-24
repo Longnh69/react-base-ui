@@ -1,24 +1,16 @@
-import Icon from '@ant-design/icons'
-import { type CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon'
-import { twMerge } from 'tailwind-merge'
+import BaseIcon, { type BaseIconProps } from './BaseIcon'
 
-export default function BaseKeyboardArrowRightIcon(props: Partial<CustomIconComponentProps>) {
-  const { className, ...restProps } = props
+interface BaseKeyboardArrowRightIconProps extends BaseIconProps {}
 
+export default function BaseKeyboardArrowRightIcon(props: BaseKeyboardArrowRightIconProps) {
   return (
-    <Icon
-      className={twMerge(
-        `
-          h-4 w-4
-        `,
-        className,
-      )}
-      {...restProps}
+    <BaseIcon
       component={() => (
         <svg xmlns='http://www.w3.org/2000/svg' height='20px' viewBox='0 -960 960 960' width='20px' fill='currentColor'>
           <path d='M522-480 333-669l51-51 240 240-240 240-51-51 189-189Z' />
         </svg>
       )}
+      {...props}
     />
   )
 }

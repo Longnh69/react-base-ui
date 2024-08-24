@@ -1,19 +1,10 @@
-import Icon from '@ant-design/icons'
-import { type CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon'
-import { twMerge } from 'tailwind-merge'
+import BaseIcon, { type BaseIconProps } from './BaseIcon'
 
-export default function BaseLightIcon(props: Partial<CustomIconComponentProps>) {
-  const { className, ...restProps } = props
+interface BaseLightIconProps extends BaseIconProps {}
 
+export default function BaseLightIcon(props: BaseLightIconProps) {
   return (
-    <Icon
-      className={twMerge(
-        `
-          h-4 w-4
-        `,
-        className,
-      )}
-      {...restProps}
+    <BaseIcon
       component={() => (
         <svg
           height='1rem'
@@ -59,6 +50,7 @@ export default function BaseLightIcon(props: Partial<CustomIconComponentProps>) 
           />
         </svg>
       )}
+      {...props}
     />
   )
 }
