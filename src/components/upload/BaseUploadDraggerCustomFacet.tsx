@@ -6,6 +6,7 @@ import BaseTypography from 'components/typography/BaseTypography'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 import BaseUploadDragger, { BaseUploadDraggerProps } from './BaseUploadDragger'
+import BaseCircleUploadIcon from 'components/icon/BaseCircleUploadIcon'
 
 export interface BaseUploadDraggerCustomFacetProps extends Omit<BaseUploadDraggerProps, 'facet'> {}
 
@@ -24,11 +25,14 @@ export default forwardRef(function BaseUploadDraggerCustomFacet(
         `,
         className,
       )}
+      beforeUpload={() => {
+        return false
+      }}
       {...restProps}
     >
       <div className='flex justify-between px-9 py-4'>
         <div className='flex flex-nowrap items-center gap-4'>
-          {/* <CircleFileSuccessIcon className='h14 flex w-14' /> */}
+          <BaseCircleUploadIcon className='flex h-14 w-14' />
           <BaseTypography className='flex flex-col items-start justify-center'>
             <BaseTitle className='text-dark m-0 text-base font-semibold'>
               Nhấp hoặc kéo tệp vào đây để tải lên
