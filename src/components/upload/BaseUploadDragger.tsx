@@ -21,7 +21,7 @@ export default forwardRef(function BaseUploadDragger(props: BaseUploadDraggerPro
           ref={ref}
           className={twMerge(
             `
-
+              
             `,
             className,
           )}
