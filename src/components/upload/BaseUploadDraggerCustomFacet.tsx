@@ -1,12 +1,12 @@
 import { type UploadRef } from 'antd/es/upload/Upload'
-import BaseButton from 'components/button/BaseButton'
-import BaseText from 'components/typography/BaseText'
-import BaseTitle from 'components/typography/BaseTitle'
-import BaseTypography from 'components/typography/BaseTypography'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
+import BaseButton from '../button/BaseButton'
+import BaseCircleUploadIcon from '../icon/BaseCircleUploadIcon'
+import BaseText from '../typography/BaseText'
+import BaseTitle from '../typography/BaseTitle'
+import BaseTypography from '../typography/BaseTypography'
 import BaseUploadDragger, { BaseUploadDraggerProps } from './BaseUploadDragger'
-import BaseCircleUploadIcon from 'components/icon/BaseCircleUploadIcon'
 
 export interface BaseUploadDraggerCustomFacetProps extends Omit<BaseUploadDraggerProps, 'facet'> {}
 
@@ -37,7 +37,7 @@ export default forwardRef(function BaseUploadDraggerCustomFacet(
             <BaseTitle className='text-dark m-0 text-base font-semibold'>
               Nhấp hoặc kéo tệp vào đây để tải lên
             </BaseTitle>
-            <BaseText className='text-dark-60 text-xs font-normal'>
+            <BaseText className='text-xs font-normal text-dark-60'>
               CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn ...MB.
             </BaseText>
             <div className='flex gap-4'></div>
