@@ -1,4 +1,5 @@
-import { type TableColumnProps, type GetProp, type TableProps } from 'antd'
+import { type GetProp, type TableColumnProps, type TableProps } from 'antd'
+import { type AnyObject } from 'antd/es/_util/type'
 import { type Dispatch, type SetStateAction } from 'react'
 import { type BaseCheckboxGroupProps } from '../../checkbox/BaseCheckboxGroup'
 import { type BaseInputProps } from '../../input/BaseInput'
@@ -14,11 +15,10 @@ import { type BaseSelectProps } from '../../select/BaseSelect'
 import { type BaseTreeSelectProps } from '../../select/BaseTreeSelect'
 import { type BaseSwitchProps } from '../../switch/BaseSwitch'
 import { type BaseTableToolbarProps } from './base-table-toolbar.type'
-import { type AnyObject } from 'antd/es/_util/type'
 
-type TAnyObject<T> = AnyObject & T & {}
+type AnyObjectWithT<T> = AnyObject & T & {}
 
-export type DataIndex<T = any> = GetProp<TableColumnProps<TAnyObject<T>>, 'dataIndex'>
+export type DataIndex<T = any> = GetProp<TableColumnProps<AnyObjectWithT<T>>, 'dataIndex'>
 
 export type BaseTableProps<T> = TableProps<T> & {
   toolbar?: BaseTableToolbarProps<T>

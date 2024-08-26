@@ -4,6 +4,8 @@ import { twMerge } from 'tailwind-merge'
 
 export type BaseRuleValidator = RuleObject['validator']
 
+export type BaseRuleValidatorRequired = NonNullable<RuleObject['validator']>
+
 export type BaseRuleValidators = NonNullable<BaseRuleValidator>[]
 
 export interface BaseFormItemProps extends FormItemProps {
