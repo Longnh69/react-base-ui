@@ -3,21 +3,20 @@ import { type Ref, forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export interface BaseTagProps extends TagProps {
-  isMargin?: boolean
+  spaceY?: boolean
 }
 
 export default forwardRef(function BaseTag(props: BaseTagProps, ref: Ref<HTMLElement> | null) {
-  const { isMargin, className, ...restProps } = props
+  const { spaceY, className, ...restProps } = props
 
   return (
     <Tag
       ref={ref}
-      color='default'
       className={twMerge(
         `
           
         `,
-        isMargin && 'my-0.5',
+        spaceY && 'my-0.5',
         className,
       )}
       {...restProps}
