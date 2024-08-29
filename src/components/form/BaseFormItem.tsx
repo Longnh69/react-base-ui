@@ -10,16 +10,31 @@ export type BaseRuleValidators = NonNullable<BaseRuleValidator>[]
 
 export interface BaseFormItemProps extends FormItemProps {
   requiredMarkPosition?: 'left' | 'right'
-  noLabel?: boolean
+  labelWrapperHidden?: boolean
+  labelWrapperInvisible?: boolean
+  labelHidden?: boolean
+  labelInvisible?: boolean
 }
 
 export default function BaseFormItem(props: BaseFormItemProps) {
-  const { className, requiredMarkPosition, noLabel = false, ...restProps } = props
+  const {
+    className,
+    requiredMarkPosition = 'right',
+    labelWrapperHidden,
+    labelWrapperInvisible,
+    labelHidden = false,
+    labelInvisible = false,
+    ...restProps
+  } = props
 
   return (
     <Form.Item
       className={twMerge(
-        !noLabel
+        labelWrapperHidden && '[&_.ant-form-item-label]:hidden',
+        labelWrapperInvisible && '[&_.ant-form-item-label]:invisible',
+        labelHidden && '[&_.ant-form-item-label>label]:hidden',
+        labelInvisible && '[&_.ant-form-item-label>label]:invisible',
+        !labelHidden && !labelInvisible
           ? [
               '[&_.ant-form-item-label>label]:dark:text-light-65',
               requiredMarkPosition === 'right' &&
@@ -30,7 +45,7 @@ export default function BaseFormItem(props: BaseFormItemProps) {
                   [&_.ant-form-item-label>label.ant-form-item-required]:before:content-['*']
                 `,
             ]
-          : '[&_.ant-form-item-label>label]:hidden',
+          : '',
         className,
       )}
       {...restProps}
