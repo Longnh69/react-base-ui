@@ -16,18 +16,7 @@ export default forwardRef(function BaseUploadDragger(props: BaseUploadDraggerPro
 
   switch (facet) {
     case 'pretty': {
-      return (
-        <BaseUploadDraggerPrettyFacet
-          ref={ref}
-          className={twMerge(
-            `
-              
-            `,
-            className,
-          )}
-          {...restProps}
-        />
-      )
+      return <BaseUploadDraggerPrettyFacet ref={ref} className={className} {...restProps} />
     }
 
     default: {

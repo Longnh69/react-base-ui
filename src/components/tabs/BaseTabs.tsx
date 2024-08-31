@@ -15,17 +15,7 @@ export default function BaseTabs(props: BaseTabsProps) {
 
   switch (facet) {
     case 'rounded': {
-      return (
-        <BaseTabsRoundedFacet
-          className={twMerge(
-            `
-
-            `,
-            className,
-          )}
-          {...restProps}
-        />
-      )
+      return <BaseTabsRoundedFacet className={className} {...restProps} />
     }
 
     default: {
