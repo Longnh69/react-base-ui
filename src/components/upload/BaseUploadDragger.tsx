@@ -3,21 +3,21 @@ import { type UploadRef } from 'antd/es/upload/Upload'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { BaseUploadProps } from './BaseUpload'
-import BaseUploadDraggerCustomFacet from './BaseUploadDraggerCustomFacet'
+import BaseUploadDraggerPrettyFacet from './BaseUploadDraggerPrettyFacet'
 
 const { Dragger } = Upload
 
 export interface BaseUploadDraggerProps extends BaseUploadProps {
-  facet?: 'custom' | 'default'
+  facet?: 'pretty' | 'default'
 }
 
 export default forwardRef(function BaseUploadDragger(props: BaseUploadDraggerProps, ref: Ref<UploadRef<any>>) {
   const { className, facet, ...restProps } = props
 
   switch (facet) {
-    case 'custom': {
+    case 'pretty': {
       return (
-        <BaseUploadDraggerCustomFacet
+        <BaseUploadDraggerPrettyFacet
           ref={ref}
           className={twMerge(
             `

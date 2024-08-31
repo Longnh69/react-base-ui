@@ -8,10 +8,10 @@ import BaseTitle from '../typography/BaseTitle'
 import BaseTypography from '../typography/BaseTypography'
 import BaseUploadDragger, { BaseUploadDraggerProps } from './BaseUploadDragger'
 
-export interface BaseUploadDraggerCustomFacetProps extends Omit<BaseUploadDraggerProps, 'facet'> {}
+export interface BaseUploadDraggerPrettyFacetProps extends Omit<BaseUploadDraggerProps, 'facet'> {}
 
-export default forwardRef(function BaseUploadDraggerCustomFacet(
-  props: BaseUploadDraggerCustomFacetProps,
+export default forwardRef(function BaseUploadDraggerPrettyFacet(
+  props: BaseUploadDraggerPrettyFacetProps,
   ref: Ref<UploadRef<any>>,
 ) {
   const { className, ...restProps } = props
