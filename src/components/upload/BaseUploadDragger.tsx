@@ -9,6 +9,7 @@ const { Dragger } = Upload
 
 export interface BaseUploadDraggerProps extends BaseUploadProps {
   facet?: 'pretty' | 'default'
+  maxTextLength?: number
 }
 
 export default forwardRef(function BaseUploadDragger(props: BaseUploadDraggerProps, ref: Ref<UploadRef<any>>) {
