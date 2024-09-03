@@ -14,6 +14,7 @@ export default function BaseTabsRoundedFacet(props: BaseTabsRoundedFacetProps) {
         ` 
           tabs-${id}
           [&_.ant-tabs-ink-bar]:hidden
+          [&_.ant-tabs-nav:before]:border-none
           [&_.ant-tabs-tab.ant-tabs-tab-active]:bg-primary
           [&_.ant-tabs-tab.ant-tabs-tab-active_.ant-tabs-tab-btn]:text-white
           [&_.ant-tabs-tab]:rounded-full

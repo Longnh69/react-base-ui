@@ -8,7 +8,7 @@ export interface BaseTagProps extends TagProps {
 }
 
 export default forwardRef(function BaseTag(props: BaseTagProps, ref: Ref<HTMLElement> | null) {
-  const { spaceY, className, color, ...restProps } = props
+  const { spaceY, className, color, closable, ...restProps } = props
 
   return (
     <Tag
@@ -21,7 +21,8 @@ export default forwardRef(function BaseTag(props: BaseTagProps, ref: Ref<HTMLEle
         className,
       )}
       color={color}
-      closeIcon={<CloseOutlined style={{ color, opacity: 50 }} />}
+      closable={closable}
+      closeIcon={closable ? <CloseOutlined style={{ color, opacity: 50 }} /> : null}
       {...restProps}
     />
   )
