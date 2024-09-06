@@ -20,7 +20,6 @@ export default forwardRef(function BaseDateRangePicker(props: BaseDateRangePicke
       allowClear
       allowEmpty={[true, true]}
       placeholder={['Bắt đầu thời gian tạo', 'Kết thúc thời gian tạo']}
-      disabledDate={(currentDate) => currentDate && currentDate > dayjs().endOf('day')}
       presets={[
         {
           label: 'Hôm nay',
