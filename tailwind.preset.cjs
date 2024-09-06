@@ -1,3 +1,5 @@
+/** @type {import('tailwindcss').Config} */
+
 const defaultTheme = require('tailwindcss/defaultTheme')
 const plugin = require('tailwindcss/plugin')
 
