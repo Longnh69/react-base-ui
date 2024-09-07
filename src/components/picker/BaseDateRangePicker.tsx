@@ -3,23 +3,29 @@ import { type RangePickerProps } from 'antd/es/date-picker'
 import dayjs, { type Dayjs } from 'dayjs'
 import { type RangePickerProps as PickerPanelDateRangeProps } from 'rc-picker/lib'
 import { forwardRef, type ComponentProps, type Ref } from 'react'
+import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+
+const { RangePicker } = DatePicker
 
 export type BaseDateRangePickerValue = ComponentProps<typeof RangePicker>['value']
 
 export type BaseDateRangePickerProps = RangePickerProps & Partial<PickerPanelDateRangeProps<Dayjs>> & {}
 
-const { RangePicker } = DatePicker
-
 export default forwardRef(function BaseDateRangePicker(props: BaseDateRangePickerProps, ref: Ref<any> | null) {
   const { className, ...restProps } = props
+
+  const { t } = useTranslation()
 
   return (
     <RangePicker
       ref={ref}
       allowClear
       allowEmpty={[true, true]}
-      placeholder={['Bắt đầu thời gian tạo', 'Kết thúc thời gian tạo']}
+      placeholder={[
+        t('choose', { name: 'start_date', defaultValue: 'Chọn ngày bắt đầu' }),
+        t('choose', { name: 'end_date', defaultValue: 'Chọn ngày kết thúc' }),
+      ]}
       presets={[
         {
           label: 'Hôm nay',
@@ -60,7 +66,7 @@ export default forwardRef(function BaseDateRangePicker(props: BaseDateRangePicke
       ]}
       className={twMerge(
         `
-          w-96
+          w-full
         `,
         className,
       )}

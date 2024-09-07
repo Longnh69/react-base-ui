@@ -16,7 +16,7 @@ export default forwardRef(function BaseTimePicker(props: BaseTimePickerProps, re
       ref={ref}
       className={twMerge(
         `
-          
+          w-full
         `,
         className,
       )}
