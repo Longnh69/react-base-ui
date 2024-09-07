@@ -1,17 +1,20 @@
 import { List, type ListProps } from 'antd'
 import { twMerge } from 'tailwind-merge'
 
-export interface BaseListProps<T> extends ListProps<T> {}
+export interface BaseListProps<T> extends ListProps<T> {
+  heightAuto?: boolean
+}
 
 export default function BaseList<T>(props: BaseListProps<T>) {
-  const { className, ...restProps } = props
+  const { heightAuto = true, className, ...restProps } = props
 
   return (
     <List
       className={twMerge(
         `
-          min-h-72
+          
         `,
+        heightAuto && 'min-h-72',
         className,
       )}
       {...restProps}

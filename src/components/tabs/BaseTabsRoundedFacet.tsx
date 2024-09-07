@@ -2,7 +2,7 @@ import { twMerge } from 'tailwind-merge'
 import { v4 as uuidv4 } from 'uuid'
 import BaseTabs, { BaseTabsProps } from './BaseTabs'
 
-export interface BaseTabsRoundedFacetProps extends BaseTabsProps {}
+export interface BaseTabsRoundedFacetProps extends Omit<BaseTabsProps, 'facet'> {}
 
 export default function BaseTabsRoundedFacet(props: BaseTabsRoundedFacetProps) {
   const id = uuidv4()
