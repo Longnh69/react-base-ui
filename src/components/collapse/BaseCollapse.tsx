@@ -15,7 +15,7 @@ export interface BaseCollapseProps extends CollapseProps {
 
 export default forwardRef(function BaseCollapse(props: BaseCollapseProps, ref: LegacyRef<HTMLDivElement> | undefined) {
   const { className, spacingX = true, spacingY = true, ...restProps } = props
-  console.log(spacingX)
+
   return (
     <Collapse
       ref={ref}

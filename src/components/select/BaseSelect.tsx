@@ -8,14 +8,15 @@ import { twMerge } from 'tailwind-merge'
 export interface BaseSelectProps extends SelectProps {}
 
 export default forwardRef(function BaseSelect(props: BaseSelectProps, ref: Ref<RefSelectProps> | null) {
-  const { className, ...restProps } = props
+  const { className, loading, ...restProps } = props
   const { t } = useTranslation()
 
   return (
     <Select
       ref={ref}
+      loading={loading}
       placeholder={t('choose', { name: t('value') })}
-      suffixIcon={<BaseKeyboardArrowDownIcon className='pointer-events-none' />}
+      suffixIcon={!loading ? <BaseKeyboardArrowDownIcon className='pointer-events-none' /> : undefined}
       filterOption={(inputValue: string, option) => {
         const inputValueLowerCase = inputValue.toLowerCase()
         const { children, label, value } = option ?? {}

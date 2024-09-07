@@ -10,18 +10,19 @@ export default forwardRef(function BaseCascader<T extends DefaultOptionType, K e
   props: BaseCascaderProps<T, K>,
   ref: Ref<CascaderRef> | null,
 ) {
-  const { className, ...restProps } = props
+  const { className, loading, ...restProps } = props
 
   return (
     <Cascader
       ref={ref}
+      loading={loading}
+      suffixIcon={!loading ? <BaseKeyboardArrowDownIcon className='pointer-events-none' /> : undefined}
       className={twMerge(
         `
           
         `,
         className,
       )}
-      suffixIcon={<BaseKeyboardArrowDownIcon className='pointer-events-none' />}
       {...restProps}
     />
   )
