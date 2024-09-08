@@ -27,7 +27,7 @@ export default function BaseTableArea<T extends Record<PropertyKey, any>>(props:
           className,
         )}
         columns={columns}
-        scroll={_.size(columns) > 10 ? { x: 2000 } : undefined}
+        scroll={_.size(columns) ? { x: 2000 } : undefined}
         sticky
         size={density}
         components={{
