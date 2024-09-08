@@ -6,7 +6,7 @@ export interface BaseListProps<T> extends ListProps<T> {
 }
 
 export default function BaseList<T>(props: BaseListProps<T>) {
-  const { heightAuto = true, className, ...restProps } = props
+  const { heightAuto, className, ...restProps } = props
 
   return (
     <List
