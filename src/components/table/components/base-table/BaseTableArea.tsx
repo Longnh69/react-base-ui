@@ -5,6 +5,7 @@ import useBaseTable from '../../hooks/useBaseTable'
 import { type BaseTableAreaProps } from '../../types/base-table-area.type'
 import BaseTableBodyCell from './BaseTableBodyCell'
 import BaseTableBodyRow from './BaseTableBodyRow'
+import _ from 'lodash'
 
 export default function BaseTableArea<T extends Record<PropertyKey, any>>(props: BaseTableAreaProps<T>) {
   const form = Form.useFormInstance()
@@ -26,7 +27,7 @@ export default function BaseTableArea<T extends Record<PropertyKey, any>>(props:
           className,
         )}
         columns={columns}
-        scroll={{ x: 2000 }}
+        scroll={_.size(columns) > 10 ? { x: 2000 } : undefined}
         sticky
         size={density}
         components={{
