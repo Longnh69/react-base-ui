@@ -132,6 +132,7 @@ const backgroundImage = {
 
 const fontFamily = {
   inter: ['Inter', ...defaultTheme.fontFamily.sans],
+  nunito: ['Nunito', ...defaultTheme.fontFamily.sans],
 }
 
 module.exports = {
