@@ -10,7 +10,7 @@ import BaseInputTextArea, { type BaseInputTextAreaProps } from '../../../input/B
 import BaseDatePicker, { type BaseDatePickerProps } from '../../../picker/BaseDatePicker'
 import BaseDateRangePicker, { type BaseDateRangePickerProps } from '../../../picker/BaseDateRangePicker'
 import BaseDateTimePicker, { type BaseDateTimePickerProps } from '../../../picker/BaseDateTimePicker'
-import BaseTimePicker, { type BaseTimePickerProps } from '../../../picker/BaseTimeRangePicker'
+import BaseTimePicker, { type BaseTimePickerProps } from '../../../picker/BaseTimePicker'
 import BaseRadioGroup, { type BaseRadioGroupProps } from '../../../radio/BaseRadioGroup'
 import BaseSelect, { type BaseSelectProps } from '../../../select/BaseSelect'
 import BaseTreeSelect, { type BaseTreeSelectProps } from '../../../select/BaseTreeSelect'
