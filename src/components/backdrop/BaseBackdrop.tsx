@@ -3,12 +3,12 @@ import { useEffect, useLayoutEffect, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import BaseSpin, { type BaseSpinProps } from '../spin/BaseSpin'
 import BaseTypography from '../typography/BaseTypography'
-import useBackdropStore from './hooks/useBackdropStore'
+import useBaseBackdropStore from './hooks/useBaseBackdropStore'
 
 export interface BaseBackdropProps extends BaseSpinProps {}
 
 export default function BaseBackdrop(props: BaseBackdropProps) {
-  const { isOpenBackdrop, isCountBackdrop, showBackdropMessage = '', setBackdrop } = useBackdropStore()
+  const { isOpenBackdrop, isCountBackdrop, showBackdropMessage = '', setBackdrop } = useBaseBackdropStore()
   const { className, ...restProps } = props
 
   const [count, setCount] = useState(0)
