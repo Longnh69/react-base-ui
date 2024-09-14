@@ -1,14 +1,14 @@
 import { List } from 'antd'
-import { type ListItemProps } from 'antd/es/list'
+import { type ListItemMetaProps } from 'antd/lib/list'
 import { twMerge } from 'tailwind-merge'
 
-export interface BaseListItemProps extends ListItemProps {}
+export interface BaseListItemMetaProps extends ListItemMetaProps {}
 
-export default function BaseListItem(props: BaseListItemProps) {
+export default function BaseListItemMeta(props: BaseListItemMetaProps) {
   const { className, ...restProps } = props
 
   return (
-    <List.Item
+    <List.Item.Meta
       className={twMerge(
         `
 

@@ -20,9 +20,10 @@ export default forwardRef(function BaseCard(props: BaseCardProps, ref: Ref<HTMLD
         <Card
           ref={ref}
           className={twMerge(
-            `
-              min-h-4 border 
-              [&_.ant-card-actions>li]:flex [&_.ant-card-actions>li]:items-center [&_.ant-card-actions>li]:justify-center
+            ` 
+              min-h-4
+              border [&_.ant-card-actions>li]:flex 
+              [&_.ant-card-actions>li]:items-center [&_.ant-card-actions>li]:justify-center 
             `,
             className,
           )}
