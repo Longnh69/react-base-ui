@@ -1,36 +1,22 @@
-import { Timeline, type TimelineItemProps, type TimelineProps } from 'antd'
+import { Timeline, TimelineItemProps, type TimelineProps } from 'antd'
 import { twMerge } from 'tailwind-merge'
-import BaseTimelineProcessFacet from './BaseTimelineProcessFacet'
 
-export interface BaseTimelineProps extends TimelineProps {
-  facet?: 'process' | 'default'
-  current?: number
-  items?: BaseTimelineItemProps[]
-}
+export interface BaseTimelineProps extends TimelineProps {}
 
-export interface BaseTimelineItemProps extends TimelineItemProps {
-  status?: 'success' | 'error' | 'processing' | 'warning' | 'default'
-}
+export interface BaseTimelineItemProps extends TimelineItemProps {}
 
 export default function BaseTimeline(props: BaseTimelineProps) {
-  const { className, facet, ...restProps } = props
+  const { className, ...restProps } = props
 
-  switch (facet) {
-    case 'process': {
-      return <BaseTimelineProcessFacet className={className} {...restProps} />
-    }
-    default: {
-      return (
-        <Timeline
-          className={twMerge(
-            `
-              
-            `,
-            className,
-          )}
-          {...restProps}
-        />
-      )
-    }
-  }
+  return (
+    <Timeline
+      className={twMerge(
+        `
+          
+        `,
+        className,
+      )}
+      {...restProps}
+    />
+  )
 }
