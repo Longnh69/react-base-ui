@@ -22,6 +22,7 @@ export default function BaseTableArea<T extends Record<PropertyKey, any>>(props:
           w-full
           [&_.ant-table-body]:scrollbar
           [&_.ant-table-content]:scrollbar
+          [&_.ant-table-sticky-scroll]:hidden
           dark:[&_thead_tr_th]:bg-primary
         `,
           className,
