@@ -1,5 +1,6 @@
+import { Flex, TimelineItemProps, Typography } from 'antd'
 import _ from 'lodash'
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode } from 'react'
 import { twMerge } from 'tailwind-merge'
 import BaseTimelineProcessDefaultIcon from '../icon/BaseTimelineProcessDefaultIcon'
 import BaseTimelineProcessErrorIcon from '../icon/BaseTimelineProcessErrorIcon'
@@ -7,7 +8,6 @@ import BaseTimelineProcessProcessingIcon from '../icon/BaseTimelineProcessProces
 import BaseTimelineProcessSuccessIcon from '../icon/BaseTimelineProcessSuccessIcon'
 import BaseTimelineProcessWarningIcon from '../icon/BaseTimelineProcessWarningIcon'
 import BaseTimeline, { type BaseTimelineProps } from './BaseTimeline'
-import { Flex, TimelineItemProps, Typography } from 'antd'
 
 export interface BaseTimelineProcessProps extends BaseTimelineProps {
   current: number
