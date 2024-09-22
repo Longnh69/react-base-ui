@@ -1,11 +1,13 @@
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 import BaseCard, { type BaseCardProps } from './BaseCard'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 export interface BaseCardBasicFacetProps extends Omit<BaseCardProps, 'facet'> {}
 
 export default forwardRef(function BaseCardBasicFacet(props: BaseCardBasicFacetProps, ref: Ref<HTMLDivElement> | null) {
-  const { className, ...restProps } = props
+  const { className, styleCss, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   return (
     <BaseCard
@@ -20,6 +22,7 @@ export default forwardRef(function BaseCardBasicFacet(props: BaseCardBasicFacetP
           [&_.ant-card-head]:p-0
         `,
         className,
+        dynamicClassName,
       )}
       {...restProps}
     />

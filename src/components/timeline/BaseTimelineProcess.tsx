@@ -8,6 +8,7 @@ import BaseTimelineProcessProcessingIcon from '../icon/BaseTimelineProcessProces
 import BaseTimelineProcessSuccessIcon from '../icon/BaseTimelineProcessSuccessIcon'
 import BaseTimelineProcessWarningIcon from '../icon/BaseTimelineProcessWarningIcon'
 import BaseTimeline, { type BaseTimelineProps } from './BaseTimeline'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 export interface BaseTimelineProcessProps extends BaseTimelineProps {
   current: number
@@ -30,6 +31,7 @@ export interface BaseTimelineProcessItemProps extends TimelineItemProps {
 export default function BaseTimelineProcess(props: BaseTimelineProcessProps) {
   const {
     className,
+    styleCss,
     current = 1,
     dotSuccess,
     dotError,
@@ -39,6 +41,8 @@ export default function BaseTimelineProcess(props: BaseTimelineProcessProps) {
     items,
     ...restProps
   } = props
+
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   const newDotSuccess = dotSuccess || <BaseTimelineProcessSuccessIcon />
   const newDotError = dotError || <BaseTimelineProcessErrorIcon />
@@ -126,6 +130,7 @@ export default function BaseTimelineProcess(props: BaseTimelineProcessProps) {
           
         `,
         className,
+        dynamicClassName,
       )}
       {...restProps}
     />

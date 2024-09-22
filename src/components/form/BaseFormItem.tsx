@@ -1,6 +1,8 @@
 import { Form, type FormItemProps } from 'antd'
 import { RuleObject } from 'antd/es/form'
 import { twMerge } from 'tailwind-merge'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 export type BaseRuleValidator = RuleObject['validator']
 
@@ -8,7 +10,7 @@ export type BaseRuleValidatorRequired = NonNullable<RuleObject['validator']>
 
 export type BaseRuleValidators = NonNullable<BaseRuleValidator>[]
 
-export interface BaseFormItemProps extends FormItemProps {
+export interface BaseFormItemProps extends FormItemProps, PropsWithStyleCss {
   requiredMarkPosition?: 'left' | 'right'
   labelWrapperHidden?: boolean
   labelWrapperInvisible?: boolean
@@ -19,6 +21,7 @@ export interface BaseFormItemProps extends FormItemProps {
 export default function BaseFormItem(props: BaseFormItemProps) {
   const {
     className,
+    styleCss,
     requiredMarkPosition = 'right',
     labelWrapperHidden,
     labelWrapperInvisible,
@@ -26,6 +29,7 @@ export default function BaseFormItem(props: BaseFormItemProps) {
     labelInvisible = false,
     ...restProps
   } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   return (
     <Form.Item
@@ -47,6 +51,7 @@ export default function BaseFormItem(props: BaseFormItemProps) {
             ]
           : '',
         className,
+        dynamicClassName,
       )}
       {...restProps}
     />

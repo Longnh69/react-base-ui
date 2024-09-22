@@ -1,12 +1,16 @@
 import { twMerge } from 'tailwind-merge'
 import { v4 as uuidv4 } from 'uuid'
 import BaseTabs, { BaseTabsProps } from './BaseTabs'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 export interface BaseTabsRoundedFacetProps extends Omit<BaseTabsProps, 'facet'> {}
 
 export default function BaseTabsRoundedFacet(props: BaseTabsRoundedFacetProps) {
   const id = uuidv4()
-  const { className, ...restProps } = props
+
+  const { className, styleCss, ...restProps } = props
+
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   return (
     <BaseTabs
@@ -25,6 +29,7 @@ export default function BaseTabsRoundedFacet(props: BaseTabsRoundedFacetProps) {
           [&_.ant-tabs-tab_.ant-tabs-tab-btn]:text-dark-60
         `,
         className,
+        dynamicClassName,
       )}
       {...restProps}
     />

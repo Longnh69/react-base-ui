@@ -6,12 +6,15 @@ import { type BaseTableAreaProps } from '../../types/base-table-area.type'
 import BaseTableBodyCell from './BaseTableBodyCell'
 import BaseTableBodyRow from './BaseTableBodyRow'
 import _ from 'lodash'
+import useDynamicClassName from '../../../../hooks/useDynamicClassName'
 
 export default function BaseTableArea<T extends Record<PropertyKey, any>>(props: BaseTableAreaProps<T>) {
   const form = Form.useFormInstance()
 
+  const { className, styleCss, draggable, onSorterChange, onChange, onRow, ...restProps } = props
+
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { columns, density } = useBaseTable<T>()
-  const { className, draggable, onSorterChange, onChange, onRow, ...restProps } = props
 
   return (
     <BaseForm form={form} component={false}>
@@ -26,6 +29,7 @@ export default function BaseTableArea<T extends Record<PropertyKey, any>>(props:
           dark:[&_thead_tr_th]:bg-primary
         `,
           className,
+          dynamicClassName,
         )}
         columns={columns}
         scroll={_.size(columns) ? { x: 2000 } : undefined}

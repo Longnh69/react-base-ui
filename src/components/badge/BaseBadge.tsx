@@ -1,19 +1,23 @@
 import { Badge, type BadgeProps } from 'antd'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { twMerge } from 'tailwind-merge'
 
-export interface BaseBadgeProps extends BadgeProps {
-  variant?: 'primary' | 'info' | 'succeeded' | 'failed' | 'default'
+export interface BaseBadgeProps extends BadgeProps, PropsWithStyleCss {
+  facet?: 'primary' | 'info' | 'succeeded' | 'failed' | 'default'
 }
 
 export default function BaseBadge(props: BaseBadgeProps) {
-  const { className, variant, ...restProps } = props
+  const { className, facet, styleCss, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
-  if (variant) {
-    switch (variant) {
+  if (facet) {
+    switch (facet) {
       case 'primary': {
         return (
           <Badge
             style={{ backgroundColor: 'transparent', color: 'rgb(37 99 235)' }}
-            className={className}
+            className={twMerge(className, dynamicClassName)}
             {...restProps}
           />
         )
@@ -22,7 +26,7 @@ export default function BaseBadge(props: BaseBadgeProps) {
         return (
           <Badge
             style={{ backgroundColor: 'transparent', color: 'rgb(8 145 178)' }}
-            className={className}
+            className={twMerge(className, dynamicClassName)}
             {...restProps}
           />
         )
@@ -31,7 +35,7 @@ export default function BaseBadge(props: BaseBadgeProps) {
         return (
           <Badge
             style={{ backgroundColor: 'transparent', color: 'rgb(22 163 74)' }}
-            className={className}
+            className={twMerge(className, dynamicClassName)}
             {...restProps}
           />
         )
@@ -40,7 +44,7 @@ export default function BaseBadge(props: BaseBadgeProps) {
         return (
           <Badge
             style={{ backgroundColor: 'transparent', color: 'rgb(239 68 68)' }}
-            className={className}
+            className={twMerge(className, dynamicClassName)}
             {...restProps}
           />
         )
@@ -49,7 +53,7 @@ export default function BaseBadge(props: BaseBadgeProps) {
         return (
           <Badge
             style={{ backgroundColor: 'transparent', color: 'rgb(75 85 99)' }}
-            className={className}
+            className={twMerge(className, dynamicClassName)}
             {...restProps}
           />
         )
@@ -60,5 +64,16 @@ export default function BaseBadge(props: BaseBadgeProps) {
     }
   }
 
-  return <Badge className={className} {...restProps} />
+  return (
+    <Badge
+      className={twMerge(
+        `
+
+        `,
+        className,
+        dynamicClassName,
+      )}
+      {...restProps}
+    />
+  )
 }

@@ -2,6 +2,7 @@ import { Upload } from 'antd'
 import { type UploadRef } from 'antd/es/upload/Upload'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { BaseUploadProps } from './BaseUpload'
 import BaseUploadDraggerPrettyFacet from './BaseUploadDraggerPrettyFacet'
 
@@ -13,7 +14,8 @@ export interface BaseUploadDraggerProps extends BaseUploadProps {
 }
 
 export default forwardRef(function BaseUploadDragger(props: BaseUploadDraggerProps, ref: Ref<UploadRef<any>>) {
-  const { className, facet, ...restProps } = props
+  const { className, facet, styleCss, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   switch (facet) {
     case 'pretty': {
@@ -29,6 +31,7 @@ export default forwardRef(function BaseUploadDragger(props: BaseUploadDraggerPro
 
             `,
             className,
+            dynamicClassName,
           )}
           {...restProps}
         />

@@ -2,18 +2,21 @@ import { Button, type ButtonProps } from 'antd'
 import _ from 'lodash'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 import BaseTooltip, { type BaseTooltipProps } from '../tooltip/BaseTooltip'
 
 type Color = 'white' | 'red' | 'green' | 'blue' | 'yellow' | 'cyan'
 
-export interface BaseButtonProps extends ButtonProps {
+export interface BaseButtonProps extends ButtonProps, PropsWithStyleCss {
   tooltip?: boolean | BaseTooltipProps
   color?: Color | string
   border?: boolean
 }
 
 export default forwardRef(function BaseButton(props: BaseButtonProps, ref: Ref<HTMLButtonElement> | null) {
-  const { className, title, tooltip, color, border, ...restProps } = props
+  const { className, styleCss, title, tooltip, color, border, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   const button = (
     <Button
@@ -66,6 +69,7 @@ export default forwardRef(function BaseButton(props: BaseButtonProps, ref: Ref<H
           [&_span]:text-cyan-600 
           `,
         className,
+        dynamicClassName,
       )}
       title={tooltip ? undefined : title}
       {...restProps}

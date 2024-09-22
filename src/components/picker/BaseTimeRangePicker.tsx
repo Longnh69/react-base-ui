@@ -5,16 +5,21 @@ import { type RangePickerProps as PickerPanelTimeRangeProps } from 'rc-picker/li
 import { forwardRef, type ComponentProps, type Ref } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
 const { RangePicker } = TimePicker
 
 export type BaseTimeRangePickerValue = ComponentProps<typeof RangePicker>['value']
 
-export type BaseTimeRangePickerProps = RangePickerProps & Partial<PickerPanelTimeRangeProps<Dayjs>> & {}
+export type BaseTimeRangePickerProps = RangePickerProps &
+  Partial<PickerPanelTimeRangeProps<Dayjs>> &
+  PropsWithStyleCss & {}
 
 export default forwardRef(function BaseTimeRangePicker(props: BaseTimeRangePickerProps, ref: Ref<any> | null) {
-  const { className, ...restProps } = props
+  const { className, styleCss, ...restProps } = props
 
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
 
   return (
@@ -25,6 +30,7 @@ export default forwardRef(function BaseTimeRangePicker(props: BaseTimeRangePicke
           w-full
         `,
         className,
+        dynamicClassName,
       )}
       placeholder={[
         t('choose', { name: 'start_time', defaultValue: 'Chọn thời gian bắt đầu' }),

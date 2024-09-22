@@ -1,13 +1,16 @@
 import { Modal, type ModalProps } from 'antd'
 import { twMerge } from 'tailwind-merge'
 import BaseDivider from '../divider/BaseDivider'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
-export interface BaseModalProps extends ModalProps {
+export interface BaseModalProps extends ModalProps, PropsWithStyleCss {
   divider?: boolean
 }
 
 export default function BaseModal(props: BaseModalProps) {
-  const { className, rootClassName, children, divider = true, ...restProps } = props
+  const { className, rootClassName, children, divider = true, styleCss, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   return (
     <Modal
@@ -17,6 +20,7 @@ export default function BaseModal(props: BaseModalProps) {
         `,
         divider ? 'p-0' : '',
         className,
+        dynamicClassName,
       )}
       rootClassName={twMerge(
         `

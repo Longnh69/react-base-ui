@@ -1,10 +1,13 @@
 import { Flex, FlexProps } from 'antd'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
-export interface BaseFlexProps extends FlexProps {}
+export interface BaseFlexProps extends FlexProps, PropsWithStyleCss {}
 
 export default function BaseFlex(props: BaseFlexProps) {
-  const { className, ...restProps } = props
+  const { className, styleCss, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   return (
     <Flex
@@ -13,6 +16,7 @@ export default function BaseFlex(props: BaseFlexProps) {
 
         `,
         className,
+        dynamicClassName,
       )}
       {...restProps}
     />

@@ -56,9 +56,16 @@ import {
 import 'ckeditor5/ckeditor5.css'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { PropsWithClassName } from '../../types/props-with-class-name.type'
 
-export default function BaseEditor() {
+export interface BaseEditorProps extends PropsWithClassName, PropsWithStyleCss {}
+
+export default function BaseEditor(props: BaseEditorProps) {
+  const { className, styleCss } = props
   const { t } = useTranslation()
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   return (
     <div
@@ -116,6 +123,8 @@ export default function BaseEditor() {
           [&_ul_ol]:ml-4 
           [&_ul_ul]:ml-4 
         `,
+        className,
+        dynamicClassName,
       )}
     >
       <CKEditor

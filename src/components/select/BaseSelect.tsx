@@ -1,14 +1,17 @@
 import { Select, type RefSelectProps, type SelectProps } from 'antd'
-import BaseKeyboardArrowDownIcon from '../icon/BaseKeyboardArrowDownIcon'
 import _ from 'lodash'
 import { forwardRef, type Ref } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import BaseKeyboardArrowDownIcon from '../icon/BaseKeyboardArrowDownIcon'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
-export interface BaseSelectProps extends SelectProps {}
+export interface BaseSelectProps extends SelectProps, PropsWithStyleCss {}
 
 export default forwardRef(function BaseSelect(props: BaseSelectProps, ref: Ref<RefSelectProps> | null) {
-  const { className, loading, ...restProps } = props
+  const { className, loading, styleCss, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
 
   return (
@@ -34,6 +37,7 @@ export default forwardRef(function BaseSelect(props: BaseSelectProps, ref: Ref<R
           [&_.ant-select-selection-overflow-item]:py-0.5
         `,
         className,
+        dynamicClassName,
       )}
       {...restProps}
     />

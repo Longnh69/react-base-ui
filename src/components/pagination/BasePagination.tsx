@@ -8,10 +8,12 @@ import NavigateNextIcon from '../icon/BaseNavigateNextIcon'
 import NavigatePreviousIcon from '../icon/BaseNavigatePreviousIcon'
 import BaseSelect from '../select/BaseSelect'
 import BaseText from '../typography/BaseText'
-
-export interface BasePaginationProps extends PaginationProps {}
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
 const { Option } = Select
+
+export interface BasePaginationProps extends PaginationProps, PropsWithStyleCss {}
 
 const itemRender: PaginationProps[`itemRender`] = (_page, type, element) => {
   switch (type) {
@@ -29,6 +31,7 @@ const itemRender: PaginationProps[`itemRender`] = (_page, type, element) => {
 export default function BasePagination(props: BasePaginationProps) {
   const {
     className,
+    styleCss,
     current,
     defaultCurrent,
     defaultPageSize,
@@ -41,8 +44,10 @@ export default function BasePagination(props: BasePaginationProps) {
     ...restProps
   } = props
 
-  const [localPageSize, setLocalPageSize] = useState(pageSize ?? defaultCurrent ?? 20)
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
+
+  const [localPageSize, setLocalPageSize] = useState(pageSize ?? defaultCurrent ?? 20)
 
   useEffect(() => {
     onChange?.(current ?? defaultCurrent ?? 1, localPageSize)
@@ -74,6 +79,7 @@ export default function BasePagination(props: BasePaginationProps) {
 
           `,
           className,
+          dynamicClassName,
         )}
         total={total}
         current={current}

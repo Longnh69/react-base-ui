@@ -2,15 +2,18 @@ import { Form, type FormItemProps, TreeSelect, type TreeSelectProps } from 'antd
 import _ from 'lodash'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
-export interface BaseTreeSelectProps extends TreeSelectProps {
+export interface BaseTreeSelectProps extends TreeSelectProps, PropsWithStyleCss {
   name?: FormItemProps['name']
 }
 
 export default function BaseTreeSelect(props: BaseTreeSelectProps) {
   const form = Form.useFormInstance()
 
-  const { name, className, treeData, ...restProps } = props
+  const { name, className, styleCss, treeData, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
 
   return (
@@ -31,6 +34,7 @@ export default function BaseTreeSelect(props: BaseTreeSelectProps) {
         `
         `,
         className,
+        dynamicClassName,
       )}
       treeData={[
         {

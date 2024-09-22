@@ -3,6 +3,7 @@ import BaseButton, { type BaseButtonProps } from './BaseButton'
 import BaseEditIcon from '../icon/BaseEditIcon'
 import { twMerge } from 'tailwind-merge'
 import { CloseCircleOutlined, SaveOutlined } from '@ant-design/icons'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 type Action = 'edit' | 'cancel' | 'save' | 'delete' | 'add' | 'view' | 'move'
 
@@ -11,8 +12,9 @@ interface BaseActionButtonProps extends BaseButtonProps {
 }
 
 export default function BaseActionButton(props: BaseActionButtonProps) {
-  const { action, className, ...restProps } = props
+  const { action, className, styleCss, ...restProps } = props
   const { t } = useTranslation()
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   switch (action) {
     case 'edit': {
@@ -22,7 +24,7 @@ export default function BaseActionButton(props: BaseActionButtonProps) {
           size='small'
           title={t('edit')}
           icon={<BaseEditIcon />}
-          className={twMerge('text-primary', className)}
+          className={twMerge('text-primary', className, dynamicClassName)}
           {...restProps}
         />
       )
@@ -34,7 +36,7 @@ export default function BaseActionButton(props: BaseActionButtonProps) {
           size='small'
           title={t('cancel')}
           icon={<CloseCircleOutlined />}
-          className={twMerge('text-primary', className)}
+          className={twMerge('text-primary', className, dynamicClassName)}
           {...restProps}
         />
       )
@@ -47,15 +49,16 @@ export default function BaseActionButton(props: BaseActionButtonProps) {
           size='small'
           title={t('save')}
           icon={<SaveOutlined />}
-          className={twMerge('text-primary', className)}
+          className={twMerge('text-primary', className, dynamicClassName)}
           {...restProps}
         />
       )
     }
 
-    default:
+    default: {
       break
+    }
   }
 
-  return <BaseButton />
+  return <BaseButton className={twMerge(className, dynamicClassName)} {...restProps} />
 }

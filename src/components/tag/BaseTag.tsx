@@ -2,13 +2,16 @@ import { CloseOutlined } from '@ant-design/icons'
 import { Tag, type TagProps } from 'antd'
 import { type Ref, forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
-export interface BaseTagProps extends TagProps {
+export interface BaseTagProps extends TagProps, PropsWithStyleCss {
   spaceY?: boolean
 }
 
 export default forwardRef(function BaseTag(props: BaseTagProps, ref: Ref<HTMLElement> | null) {
-  const { spaceY, className, color, closable, ...restProps } = props
+  const { spaceY, className, color, closable, styleCss, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   return (
     <Tag
@@ -19,6 +22,7 @@ export default forwardRef(function BaseTag(props: BaseTagProps, ref: Ref<HTMLEle
         `,
         spaceY && 'my-0.5',
         className,
+        dynamicClassName,
       )}
       color={color}
       closable={closable}

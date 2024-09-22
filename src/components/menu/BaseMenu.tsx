@@ -1,15 +1,18 @@
 import { Menu, type MenuProps, type MenuRef } from 'antd'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
 export type BaseMenuItem = Required<MenuProps>['items'][number]
 
 export type BaseMenuItems = Required<MenuProps>['items']
 
-export interface BaseMenuProps extends MenuProps {}
+export interface BaseMenuProps extends MenuProps, PropsWithStyleCss {}
 
 export default forwardRef(function BaseMenu(props: BaseMenuProps, ref: Ref<MenuRef> | null) {
-  const { className, ...restProps } = props
+  const { className, styleCss, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   return (
     <Menu
@@ -26,6 +29,7 @@ export default forwardRef(function BaseMenu(props: BaseMenuProps, ref: Ref<MenuR
           [&_.ant-menu.ant-menu-sub.ant-menu-vertical]:dark:bg-dark-888
         `,
         className,
+        dynamicClassName,
       )}
       {...restProps}
     />

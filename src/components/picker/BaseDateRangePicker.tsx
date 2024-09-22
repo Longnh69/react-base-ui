@@ -5,16 +5,21 @@ import { type RangePickerProps as PickerPanelDateRangeProps } from 'rc-picker/li
 import { forwardRef, type ComponentProps, type Ref } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 const { RangePicker } = DatePicker
 
 export type BaseDateRangePickerValue = ComponentProps<typeof RangePicker>['value']
 
-export type BaseDateRangePickerProps = RangePickerProps & Partial<PickerPanelDateRangeProps<Dayjs>> & {}
+export type BaseDateRangePickerProps = RangePickerProps &
+  Partial<PickerPanelDateRangeProps<Dayjs>> &
+  PropsWithStyleCss & {}
 
 export default forwardRef(function BaseDateRangePicker(props: BaseDateRangePickerProps, ref: Ref<any> | null) {
-  const { className, ...restProps } = props
+  const { className, styleCss, ...restProps } = props
 
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
 
   return (
@@ -69,6 +74,7 @@ export default forwardRef(function BaseDateRangePicker(props: BaseDateRangePicke
           w-full
         `,
         className,
+        dynamicClassName,
       )}
       {...restProps}
     />

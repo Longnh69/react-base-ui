@@ -1,15 +1,15 @@
 import { Empty, Typography, type EmptyProps } from 'antd'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
-type Variant = 'missing'
-
-export interface BaseEmptyProps extends EmptyProps {
-  variant?: Variant
-}
+export interface BaseEmptyProps extends EmptyProps, PropsWithStyleCss {}
 
 export default function BaseEmpty(props: BaseEmptyProps) {
-  const { className, description, variant, ...restProps } = props
+  const { className, description, styleCss, ...restProps } = props
+
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
 
   return (
@@ -19,6 +19,7 @@ export default function BaseEmpty(props: BaseEmptyProps) {
           py-8
         `,
         className,
+        dynamicClassName,
       )}
       description={description ?? <Typography className='text-dark-8 select-none'>{t('no_data')}</Typography>}
       {...restProps}

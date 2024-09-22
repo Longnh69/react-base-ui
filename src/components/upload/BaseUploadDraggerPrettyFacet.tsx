@@ -15,6 +15,7 @@ import BaseTitle from '../typography/BaseTitle'
 import BaseTypography from '../typography/BaseTypography'
 import { type BaseUploadProps } from './BaseUpload'
 import BaseUploadDragger, { type BaseUploadDraggerProps } from './BaseUploadDragger'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 export interface BaseUploadDraggerPrettyFacetProps extends Omit<BaseUploadDraggerProps, 'facet'> {}
 
@@ -22,8 +23,10 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
   props: BaseUploadDraggerPrettyFacetProps,
   ref: Ref<UploadRef<any>>,
 ) {
+  const { className, styleCss, fileList, maxTextLength = 50, onChange, ...restProps } = props
+
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
-  const { className, fileList, maxTextLength = 50, onChange, ...restProps } = props
 
   const [newFileList, setNewFileList] = useState<UploadFile[]>(fileList || [])
 
@@ -140,6 +143,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
           [&_.ant-upload-list]:gap-2
         `,
         className,
+        dynamicClassName,
       )}
       itemRender={getItemRender}
       beforeUpload={() => false}

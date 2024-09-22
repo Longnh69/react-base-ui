@@ -4,12 +4,15 @@ import { twMerge } from 'tailwind-merge'
 import BaseSpin, { type BaseSpinProps } from '../spin/BaseSpin'
 import BaseTypography from '../typography/BaseTypography'
 import useBaseBackdropStore from './hooks/useBaseBackdropStore'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
-export interface BaseBackdropProps extends BaseSpinProps {}
+export interface BaseBackdropProps extends BaseSpinProps, PropsWithStyleCss {}
 
 export default function BaseBackdrop(props: BaseBackdropProps) {
   const { isOpenBackdrop, isCountBackdrop, showBackdropMessage = '', setBackdrop } = useBaseBackdropStore()
-  const { className, ...restProps } = props
+  const { className, styleCss, ...restProps } = props
+  const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   const [count, setCount] = useState(0)
 
@@ -49,6 +52,7 @@ export default function BaseBackdrop(props: BaseBackdropProps) {
 
             `,
             className,
+            dynamicClassName,
           )}
           {...restProps}
         />
