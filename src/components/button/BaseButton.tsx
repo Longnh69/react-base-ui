@@ -6,11 +6,8 @@ import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 import BaseTooltip, { type BaseTooltipProps } from '../tooltip/BaseTooltip'
 
-type Color = 'white' | 'red' | 'green' | 'blue' | 'yellow' | 'cyan'
-
 export interface BaseButtonProps extends ButtonProps, PropsWithStyleCss {
   tooltip?: boolean | BaseTooltipProps
-  color?: Color | string
   border?: boolean
 }
 
