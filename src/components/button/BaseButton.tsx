@@ -6,8 +6,11 @@ import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 import BaseTooltip, { type BaseTooltipProps } from '../tooltip/BaseTooltip'
 
-export interface BaseButtonProps extends ButtonProps, PropsWithStyleCss {
+type BaseButtonColor = ButtonProps['color']
+
+export interface BaseButtonProps extends Omit<ButtonProps, 'color'>, PropsWithStyleCss {
   tooltip?: boolean | BaseTooltipProps
+  color?: BaseButtonColor | 'white' | 'red' | 'green' | 'blue' | 'yellow' | 'cyan'
   border?: boolean
 }
 
@@ -68,6 +71,11 @@ export default forwardRef(function BaseButton(props: BaseButtonProps, ref: Ref<H
         className,
         dynamicClassName,
       )}
+      color={
+        color && !_.includes(['white', 'red', 'green', 'blue', 'yellow', 'cyan'], color)
+          ? (color as BaseButtonColor)
+          : undefined
+      }
       title={tooltip ? undefined : title}
       {...restProps}
     />
