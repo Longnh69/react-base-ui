@@ -93,7 +93,7 @@ export default function BaseTableToolbarSetting<T>(props: BaseTableToolbarSettin
                     <Flex vertical gap={6}>
                       {_.size(fixedLeftColumns) || _.size(fixedRightColumns) ? (
                         <div className='ml-8'>
-                          <BaseTypography className='text-xs text-light-595'>
+                          <BaseTypography className='text-light-fdfdfd1f595 text-xs'>
                             {(() => {
                               switch (index) {
                                 case 0: {
@@ -115,7 +115,7 @@ export default function BaseTableToolbarSetting<T>(props: BaseTableToolbarSettin
                       ) : (
                         <></>
                       )}
-                      <Flex className='rounded-md bg-dark-141 p-2'>
+                      <Flex className='bg-dark-141414 rounded-md p-2'>
                         <Row gutter={[8, 8]} className='w-full'>
                           <DndContext
                             collisionDetection={closestCenter}

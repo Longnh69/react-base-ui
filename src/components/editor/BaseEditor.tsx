@@ -71,30 +71,30 @@ export default function BaseEditor(props: BaseEditorProps) {
     <div
       className={twMerge(
         `
+          [&_.ck-source-editing-area>textarea]:dark:bg-dark-141414
+          [&_.ck-source-editing-area>textarea]:dark:border-dark-424242
           [&_.ck-source-editing-area>textarea:focus]:border-primary
           [&_.ck-source-editing-area>textarea]:rounded-b-md
-          [&_.ck-source-editing-area>textarea]:dark:border-dark-424
-          [&_.ck-source-editing-area>textarea]:dark:bg-dark-141
           [&_.ck-source-editing-area]:rounded-b-md
         `,
         `
-          [&_.raw-html-embed]:dark:bg-dark-141
-          [&_.raw-html-embed_textarea]:dark:bg-dark-141
+          [&_.raw-html-embed]:dark:bg-dark-141414
+          [&_.raw-html-embed_textarea]:dark:bg-dark-141414
         `,
         `
+          [&_.ck.ck-content]:dark:bg-dark-141414
+          [&_.ck.ck-content]:dark:border-dark-424242
           [&_.ck.ck-content:focus]:border-primary
           [&_.ck.ck-content:focus]:dark:border-primary
           [&_.ck.ck-content:hover]:border-primary
           [&_.ck.ck-content:hover]:dark:border-primary
           [&_.ck.ck-content]:rounded-b-md
           [&_.ck.ck-content]:transition-all
-          [&_.ck.ck-content]:dark:border-dark-424
-          [&_.ck.ck-content]:dark:bg-dark-141
         `,
         `
+          [&_.ck.ck-toolbar]:dark:bg-dark-141414
+          [&_.ck.ck-toolbar]:dark:border-dark-424242
           [&_.ck.ck-toolbar]:rounded-t-md
-          [&_.ck.ck-toolbar]:dark:border-dark-424
-          [&_.ck.ck-toolbar]:dark:bg-dark-141
         `,
         `
           [&_.ck.ck-toolbar_.ck.ck-button.ck-on]:dark:bg-transparent
@@ -109,10 +109,10 @@ export default function BaseEditor(props: BaseEditorProps) {
           [&_.ck.ck-toolbar_.ck.ck-splitbutton]:dark:bg-transparent
           [&_.ck.ck-toolbar_.ck.ck-splitbutton_.ck.ck-button]:dark:bg-transparent
           ${String.raw`
-            [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel.ck-dropdown\_\_panel\_se]:dark:bg-dark-141
-            [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel]:dark:bg-dark-141
+            [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel.ck-dropdown\_\_panel\_se]:dark:bg-dark-141414
+            [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel]:dark:bg-dark-141414
+            [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel_.ck.ck-list\_\_item]:dark:bg-dark-141414
             [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel_.ck.ck-button.ck-insert-table-dropdown-grid-box.ck-on]:dark:border-primary
-            [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel_.ck.ck-list\_\_item]:dark:bg-dark-141
           `}
         `,
         `

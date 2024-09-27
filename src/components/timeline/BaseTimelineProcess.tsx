@@ -58,10 +58,10 @@ export default function BaseTimelineProcess(props: BaseTimelineProcessProps) {
           <Typography
             className={twMerge(
               'text-sm',
-              _.eq(status, 'success') && 'text-green-121',
-              _.eq(status, 'error') && 'text-red-121',
-              _.eq(status, 'processing') && 'text-blue-104',
-              _.eq(status, 'warning') && 'text-orange-121',
+              _.eq(status, 'success') && 'text-green-39ac6d',
+              _.eq(status, 'error') && 'text-red-e14337',
+              _.eq(status, 'processing') && 'text-blue-1877f2',
+              _.eq(status, 'warning') && 'text-orange-fc6b03',
             )}
           >
             {leftTitle}

@@ -12,11 +12,11 @@ export default function BaseErrorFallback(_props: BaseErrorFallbackProps) {
   const { t } = useTranslation()
 
   return (
-    <div className='flex h-dvh w-full items-center justify-center bg-white dark:bg-dark-888'>
+    <div className='dark:bg-dark-18181b flex h-dvh w-full items-center justify-center bg-white'>
       <div className='flex flex-col gap-8'>
         <div>
-          <BaseTitle className='text-dark-113'>Oops!</BaseTitle>
-          <BaseTypography className='text-dark-104'>Có lỗi phát sinh, vui lòng thử lại</BaseTypography>
+          <BaseTitle className='text-dark-5f5f5f'>Oops!</BaseTitle>
+          <BaseTypography className='text-dark-8c8c8c'>Có lỗi phát sinh, vui lòng thử lại</BaseTypography>
         </div>
         <div>
           <BaseButton

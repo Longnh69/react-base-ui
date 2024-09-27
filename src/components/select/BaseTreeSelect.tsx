@@ -49,7 +49,7 @@ export default function BaseTreeSelect(props: BaseTreeSelectProps) {
                     })
                   }
                 }}
-                className='inline-block cursor-pointer text-blue-219'
+                className='text-blue-286fbe inline-block cursor-pointer'
               >
                 {t('unselect_all')}
               </span>
@@ -60,7 +60,7 @@ export default function BaseTreeSelect(props: BaseTreeSelectProps) {
                     [name]: _.map(treeData, 'value'),
                   })
                 }
-                className='inline-block cursor-pointer text-blue-219'
+                className='text-blue-286fbe inline-block cursor-pointer'
               >
                 {t('select_all')}
               </span>

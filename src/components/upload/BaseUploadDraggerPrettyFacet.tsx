@@ -111,20 +111,20 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
                 <BaseText>{name}</BaseText>
               )}
               <BaseText> </BaseText>
-              <BaseText className='text-xs italic text-dark-104'>({filesize(size, { standard: 'jedec' })})</BaseText>
+              <BaseText className='text-dark-8c8c8c text-xs italic'>({filesize(size, { standard: 'jedec' })})</BaseText>
             </BaseTypography>
           </Flex>
         </Flex>
         <Flex className='flex gap-2'>
           <BaseButton
             type='text'
-            icon={<DownloadOutlined className='text-green-105' />}
+            icon={<DownloadOutlined className='text-green-039732' />}
             title={t('download', { defaultValue: 'Tải xuống' })}
             onClick={download}
           />
           <BaseButton
             type='text'
-            icon={<DeleteOutlined className='text-orange-105' />}
+            icon={<DeleteOutlined className='text-orange-d46b08' />}
             title={t('remove_attachment', { defaultValue: 'Gỡ xuống tập tin' })}
             onClick={remove}
           />
