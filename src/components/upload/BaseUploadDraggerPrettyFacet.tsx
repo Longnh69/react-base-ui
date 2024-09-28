@@ -111,7 +111,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
                 <BaseText>{name}</BaseText>
               )}
               <BaseText> </BaseText>
-              <BaseText className='text-dark-8c8c8c text-xs italic'>({filesize(size, { standard: 'jedec' })})</BaseText>
+              <BaseText className='text-xs italic text-dark-8c8c8c'>({filesize(size, { standard: 'jedec' })})</BaseText>
             </BaseTypography>
           </Flex>
         </Flex>
@@ -166,7 +166,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
           </BaseTypography>
         </div>
         <div className='flex items-center'>
-          <BaseButton className='text-dark-1 text-sm font-semibold'>Chọn tệp</BaseButton>
+          <BaseButton className='text-sm font-semibold'>Chọn tệp</BaseButton>
         </div>
       </div>
     </BaseUploadDragger>
