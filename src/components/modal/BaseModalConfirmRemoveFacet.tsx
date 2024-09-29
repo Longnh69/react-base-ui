@@ -8,7 +8,7 @@ import BaseModal, { type BaseModalProps } from './BaseModal'
 export interface BaseModalConfirmRemoveFacetProps extends Omit<BaseModalProps, 'facet'> {}
 
 export default function BaseModalConfirmRemoveFacet(props: BaseModalConfirmRemoveFacetProps) {
-  const { className, title, footer, children, onCancel, onOk, ...restProps } = props
+  const { className, title, children, onCancel, onOk, ...restProps } = props
 
   const { t } = useTranslation()
 
