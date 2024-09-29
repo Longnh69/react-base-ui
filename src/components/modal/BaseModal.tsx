@@ -11,7 +11,7 @@ export interface BaseModalProps extends ModalProps, PropsWithStyleCss {
 }
 
 export default function BaseModal(props: BaseModalProps) {
-  const { facet, className, rootClassName, children, divider, styleCss, ...restProps } = props
+  const { facet, className, rootClassName, children, divider = true, styleCss, ...restProps } = props
   const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   switch (facet) {
