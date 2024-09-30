@@ -146,14 +146,15 @@ export function BaseTableProvider<T>(props: BaseTableProviderProps<T>) {
     setShowColumnIds(_.compact(_.map(all, 'id')))
   }
 
-  // useUpdateEffect(() => {
-  //   handleColumnsDisplayReset()
-  // }, [columns])
+  useUpdateEffect(() => {
+    handleColumnsDisplayReset()
+  }, [columns])
 
   return (
     <BaseTableContext.Provider
       value={{
         // columns: _.filter(newColumns, (columns) => _.includes(showColumnIds, columns.id)),
+        // allColumns: newColumns,
         columns: columns,
         allColumns: columns,
         showColumnIds,
