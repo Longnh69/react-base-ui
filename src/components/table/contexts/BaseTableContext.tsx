@@ -34,7 +34,7 @@ const BaseTableContext = createContext<BaseTableContextProps<any>>({
   fixedLeftColumns: [],
   fixedRightColumns: [],
   unFixedColumns: [],
-  density: 'middle',
+  density: 'large',
 })
 
 export function BaseTableProvider<T>(props: BaseTableProviderProps<T>) {
@@ -47,7 +47,7 @@ export function BaseTableProvider<T>(props: BaseTableProviderProps<T>) {
   const [fixedLeftColumns, setFixedLeftColumns] = useState<BaseColumnsType<T>>([])
   const [fixedRightColumns, setFixedRightColumns] = useState<BaseColumnsType<T>>([])
   const [unFixedColumns, setUnFixedColumns] = useState<BaseColumnsType<T>>([])
-  const [density, setDensity] = useState<BaseTableSizeType<T>>('middle')
+  const [density, setDensity] = useState<BaseTableSizeType<T>>('large')
 
   const handleColumnsChange = (columns: BaseColumnsType<T>) => {
     const fixedLeft: BaseColumnsType<T> = []
