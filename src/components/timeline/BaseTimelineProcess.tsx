@@ -79,7 +79,7 @@ export default function BaseTimelineProcess(props: BaseTimelineProcessProps) {
       item.label = label
       item.children = children
 
-      if (_.eq(index + 1, current)) {
+      if (_.eq(index + 1, current) && (!status || _.includes(['default'], status))) {
         return {
           ...item,
           dot: newDotProcessing,
@@ -87,7 +87,7 @@ export default function BaseTimelineProcess(props: BaseTimelineProcessProps) {
         }
       }
 
-      if (index + 1 < current) {
+      if (index + 1 <= current) {
         switch (status) {
           case 'warning': {
             return {
