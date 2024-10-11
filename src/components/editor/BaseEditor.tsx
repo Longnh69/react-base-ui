@@ -54,27 +54,42 @@ import {
   WordCount,
 } from 'ckeditor5'
 import 'ckeditor5/ckeditor5.css'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
-import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { PropsWithClassName } from '../../types/props-with-class-name.type'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
+import { useDebounce } from 'react-use'
 
-export interface BaseEditorProps extends PropsWithClassName, PropsWithStyleCss {}
+export interface BaseEditorProps extends PropsWithClassName, PropsWithStyleCss {
+  value?: string
+  onChange?: (value: string) => void
+}
 
 export default function BaseEditor(props: BaseEditorProps) {
-  const { className, styleCss } = props
+  const { className, styleCss, value, onChange } = props
   const { t } = useTranslation()
   const { dynamicClassName } = useDynamicClassName({ styleCss })
+
+  const [newValue, setNewValue] = useState(value)
+
+  useDebounce(
+    () => {
+      onChange?.(newValue || '')
+    },
+    10,
+    [newValue],
+  )
 
   return (
     <div
       className={twMerge(
         `
-          [&_.ck-source-editing-area>textarea]:dark:bg-dark-141414
-          [&_.ck-source-editing-area>textarea]:dark:border-dark-424242
           [&_.ck-source-editing-area>textarea:focus]:border-primary
           [&_.ck-source-editing-area>textarea]:rounded-b-md
+          [&_.ck-source-editing-area>textarea]:dark:border-dark-424242
+          [&_.ck-source-editing-area>textarea]:dark:bg-dark-141414
           [&_.ck-source-editing-area]:rounded-b-md
         `,
         `
@@ -82,19 +97,19 @@ export default function BaseEditor(props: BaseEditorProps) {
           [&_.raw-html-embed_textarea]:dark:bg-dark-141414
         `,
         `
-          [&_.ck.ck-content]:dark:bg-dark-141414
-          [&_.ck.ck-content]:dark:border-dark-424242
           [&_.ck.ck-content:focus]:border-primary
           [&_.ck.ck-content:focus]:dark:border-primary
           [&_.ck.ck-content:hover]:border-primary
           [&_.ck.ck-content:hover]:dark:border-primary
           [&_.ck.ck-content]:rounded-b-md
           [&_.ck.ck-content]:transition-all
+          [&_.ck.ck-content]:dark:border-dark-424242
+          [&_.ck.ck-content]:dark:bg-dark-141414
         `,
         `
-          [&_.ck.ck-toolbar]:dark:bg-dark-141414
-          [&_.ck.ck-toolbar]:dark:border-dark-424242
           [&_.ck.ck-toolbar]:rounded-t-md
+          [&_.ck.ck-toolbar]:dark:border-dark-424242
+          [&_.ck.ck-toolbar]:dark:bg-dark-141414
         `,
         `
           [&_.ck.ck-toolbar_.ck.ck-button.ck-on]:dark:bg-transparent
@@ -111,8 +126,8 @@ export default function BaseEditor(props: BaseEditorProps) {
           ${String.raw`
             [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel.ck-dropdown\_\_panel\_se]:dark:bg-dark-141414
             [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel]:dark:bg-dark-141414
-            [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel_.ck.ck-list\_\_item]:dark:bg-dark-141414
             [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel_.ck.ck-button.ck-insert-table-dropdown-grid-box.ck-on]:dark:border-primary
+            [&_.ck.ck-toolbar_.ck.ck-dropdown\_\_panel_.ck.ck-list\_\_item]:dark:bg-dark-141414
           `}
         `,
         `
@@ -336,12 +351,12 @@ export default function BaseEditor(props: BaseEditorProps) {
             ],
           },
         }}
-        data='<p></p>'
+        data={newValue || '<p></p>'}
         onReady={(editor) => {
           console.log('Editor is ready to use!', editor)
         }}
-        onChange={(event) => {
-          console.log(event)
+        onChange={(_event, editor) => {
+          setNewValue(editor.getData())
         }}
       />
     </div>

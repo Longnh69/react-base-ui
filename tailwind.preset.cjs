@@ -309,6 +309,7 @@ const colors = {
     ['ff4d4f']: '#ff4d4f',
     ['ffa39e']: '#ffa39e',
     ['fff1f0']: '#fff1f0',
+    ['ffe4e2']: '#ffe4e2',
   },
 }
 
