@@ -160,7 +160,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
               Nhấp hoặc kéo tệp vào đây để tải lên
             </BaseTitle>
             <BaseText className='text-justify text-xs font-normal  text-dark-60'>
-              CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn ...MB.
+              CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn 20 MB.
             </BaseText>
             <div className='flex gap-4'></div>
           </BaseTypography>
