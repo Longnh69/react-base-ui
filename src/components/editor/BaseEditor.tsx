@@ -56,11 +56,11 @@ import {
 import 'ckeditor5/ckeditor5.css'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useDebounce } from 'react-use'
 import { twMerge } from 'tailwind-merge'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { PropsWithClassName } from '../../types/props-with-class-name.type'
 import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
-import { useDebounce } from 'react-use'
 
 export interface BaseEditorProps extends PropsWithClassName, PropsWithStyleCss {
   value?: string
@@ -78,7 +78,7 @@ export default function BaseEditor(props: BaseEditorProps) {
     () => {
       onChange?.(newValue || '')
     },
-    10,
+    100,
     [newValue],
   )
 
