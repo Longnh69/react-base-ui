@@ -10,12 +10,12 @@ type BaseButtonColor = ButtonProps['color']
 
 export interface BaseButtonProps extends Omit<ButtonProps, 'color'>, PropsWithStyleCss {
   tooltip?: boolean | BaseTooltipProps
-  color?: BaseButtonColor | 'white' | 'red' | 'green' | 'blue' | 'yellow' | 'cyan'
+  color?: BaseButtonColor | 'white' | 'red' | 'green' | 'blue' | 'yellow' | 'cyan' | 'gray'
   border?: boolean
 }
 
 export default forwardRef(function BaseButton(props: BaseButtonProps, ref: Ref<HTMLButtonElement> | null) {
-  const { className, styleCss, title, tooltip, color, border, ...restProps } = props
+  const { className, styleCss, title, tooltip, color, border, disabled, ...restProps } = props
   const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   const button = (
@@ -25,57 +25,66 @@ export default forwardRef(function BaseButton(props: BaseButtonProps, ref: Ref<H
         `
           flex items-center justify-center 
         `,
-        color &&
-          `
-            border transition-all
-            [&_span]:transition-all
-          `,
-        color === 'white' &&
-          `
-          ${border && 'border-white hover:border-primary'}
-          [&:hover_span]:text-primary
-          [&:hover_span]:dark:text-primary
-          [&_span]:text-black
-          [&_span]:dark:text-white
-          `,
-        color === 'red' &&
-          `
-          ${border && 'border-red-600 hover:border-red-800'}
-          [&:hover_span]:text-red-300
-          [&_span]:text-red-600 
-          `,
-        color === 'green' &&
-          `
-          ${border && 'border-green-600 hover:border-green-800'}
-          [&:hover_span]:text-green-300
-          [&_span]:text-green-600 
-          `,
-        color === 'blue' &&
-          `
+        !disabled && [
+          color &&
+            `
+              border transition-all
+              [&_span]:transition-all
+            `,
+          color === 'white' &&
+            `
+            ${border && 'border-white hover:border-primary'}
+            [&:hover_span]:text-primary
+            [&:hover_span]:dark:text-primary
+            [&_span]:text-black
+            [&_span]:dark:text-white
+            `,
+          color === 'red' &&
+            `
+            ${border && 'border-red-600 hover:border-red-800'}
+            [&:hover_span]:text-red-300
+            [&_span]:text-red-600 
+            `,
+          color === 'green' &&
+            `
+            ${border && 'border-green-600 hover:border-green-800'}
+            [&:hover_span]:text-green-300
+            [&_span]:text-green-600 
+            `,
+          color === 'blue' &&
+            `
           ${border && 'border-blue-600 hover:border-blue-800'}
           [&:hover_span]:text-blue-300
           [&_span]:text-blue-600 
           `,
-        color === 'yellow' &&
-          `
+          color === 'yellow' &&
+            `
           ${border && 'border-yellow-600 hover:border-yellow-800'}
           [&:hover_span]:text-yellow-300
           [&_span]:text-yellow-600 
           `,
-        color === 'cyan' &&
-          `
+          color === 'cyan' &&
+            `
           ${border && 'border-cyan-600 hover:border-cyan-800'}
           [&:hover_span]:text-cyan-300
           [&_span]:text-cyan-600 
           `,
+          color === 'gray' &&
+            `
+          ${border && 'border-dark-66 hover:border-gray-800'}
+          [&:hover_span]:text-gray-300
+          [&_span]:text-dark-66
+          `,
+        ],
         className,
         dynamicClassName,
       )}
       color={
-        color && !_.includes(['white', 'red', 'green', 'blue', 'yellow', 'cyan'], color)
+        color && !_.includes(['white', 'red', 'green', 'blue', 'yellow', 'cyan', 'gray'], color)
           ? (color as BaseButtonColor)
           : undefined
       }
+      disabled={disabled}
       title={tooltip ? undefined : title}
       {...restProps}
     />
