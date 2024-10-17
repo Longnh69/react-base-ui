@@ -10,7 +10,7 @@ export default function BaseSkeletonInput(props: BaseSkeletonInputProps) {
   const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   return (
-    <Skeleton.Image
+    <Skeleton.Input
       className={twMerge(
         `
 

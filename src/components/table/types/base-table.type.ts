@@ -12,7 +12,7 @@ import { type BaseDateTimePickerProps } from '../../picker/BaseDateTimePicker'
 import { type BaseTimePickerProps } from '../../picker/BaseTimePicker'
 import { type BaseRadioGroupProps } from '../../radio/BaseRadioGroup'
 import { type BaseSelectProps } from '../../select/BaseSelect'
-import { type BaseTreeSelectProps } from '../../select/BaseTreeSelect'
+import { type BaseTreeSelectProps } from '../../tree-select/BaseTreeSelect'
 import { type BaseSwitchProps } from '../../switch/BaseSwitch'
 import { type BaseTableToolbarProps } from './base-table-toolbar.type'
 
