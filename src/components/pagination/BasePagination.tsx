@@ -3,13 +3,13 @@ import _ from 'lodash'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 import BaseButton from '../button/BaseButton'
 import NavigateNextIcon from '../icon/BaseNavigateNextIcon'
 import NavigatePreviousIcon from '../icon/BaseNavigatePreviousIcon'
 import BaseSelect from '../select/BaseSelect'
-import BaseText from '../typography/BaseText'
-import useDynamicClassName from '../../hooks/useDynamicClassName'
-import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
+import BaseTypography from '../typography/BaseTypography'
 
 const { Option } = Select
 
@@ -70,7 +70,7 @@ export default function BasePagination(props: BasePaginationProps) {
               </Option>
             ))}
           </BaseSelect>
-          <BaseText>{t('of_items', { count: total })}</BaseText>
+          <BaseTypography className='w-full'>{t('of_items', { count: total })}</BaseTypography>
         </Flex>
       )}
       <Pagination
