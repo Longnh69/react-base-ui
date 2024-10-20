@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
 import { getBase64 } from '../../utils/file.util'
 import BaseButton from '../button/BaseButton'
-import BaseCircleUploadInfoIcon from '../icon/BaseCircleUploadInfoIcon'
+import BaseCircleUploadIcon from '../icon/BaseCircleUploadIcon'
 import BaseImage from '../image/BaseImage'
 import BaseText from '../typography/BaseText'
 import BaseTitle from '../typography/BaseTitle'
@@ -154,7 +154,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
     >
       <div className='flex justify-between p-4'>
         <div className='flex flex-nowrap items-center gap-4'>
-          <BaseCircleUploadInfoIcon className='flex h-14 w-14' />
+          <BaseCircleUploadIcon className='flex h-14 w-14' />
           <BaseTypography className='flex flex-col items-start justify-center'>
             <BaseTitle className='text-dark m-0 text-base font-semibold'>
               Nhấp hoặc kéo tệp vào đây để tải lên

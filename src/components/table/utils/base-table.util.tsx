@@ -29,7 +29,7 @@ import {
 } from '../types/base-table-filter.type'
 import { type BaseTableSorterParams } from '../types/base-table-sorter.type'
 
-const getColumnMergedCell = <T,>(columns: BaseColumnsType<T>, isEditing?: ((record: T) => boolean) | null) => {
+export const getColumnMergedCell = <T,>(columns: BaseColumnsType<T>, isEditing?: ((record: T) => boolean) | null) => {
   return _.map(columns, (column, columnIndex) => {
     if (!_.size(column)) {
       return column
@@ -92,7 +92,7 @@ const getColumnMergedCell = <T,>(columns: BaseColumnsType<T>, isEditing?: ((reco
   })
 }
 
-const getSorterProps = <T,>(baseTableSorterParams: BaseTableSorterParams): BaseColumnType<T> => {
+export const getSorterProps = <T,>(baseTableSorterParams: BaseTableSorterParams): BaseColumnType<T> => {
   const { dataIndex, sorter } = baseTableSorterParams
   const { order, column } = sorter ?? {}
   const { sorterDataIndex } = column ?? {}
@@ -105,7 +105,7 @@ const getSorterProps = <T,>(baseTableSorterParams: BaseTableSorterParams): BaseC
   }
 }
 
-const getInputFilterProps = <T,>(baseTableInputFilterParams: BaseTableInputFilterParams): BaseColumnType<T> => {
+export const getInputFilterProps = <T,>(baseTableInputFilterParams: BaseTableInputFilterParams): BaseColumnType<T> => {
   const { dataIndex, filter, onFilterChange, ...restProps } = baseTableInputFilterParams
 
   return {
@@ -178,7 +178,9 @@ const getInputFilterProps = <T,>(baseTableInputFilterParams: BaseTableInputFilte
   }
 }
 
-const getSelectFilterProps = <T,>(baseTableSelectFilterParams: BaseTableSelectFilterParams): BaseColumnType<T> => {
+export const getSelectFilterProps = <T,>(
+  baseTableSelectFilterParams: BaseTableSelectFilterParams,
+): BaseColumnType<T> => {
   const { dataIndex, filter, onFilterChange, mode, className, ...restProps } = baseTableSelectFilterParams
 
   return {
@@ -274,7 +276,7 @@ const getSelectFilterProps = <T,>(baseTableSelectFilterParams: BaseTableSelectFi
   }
 }
 
-const getCheckboxFilterProps = <T,>(
+export const getCheckboxFilterProps = <T,>(
   baseTableCheckboxFilterParams: BaseTableCheckboxFilterParams,
 ): BaseColumnType<T> => {
   const { dataIndex, filter, onFilterChange, ...restProps } = baseTableCheckboxFilterParams
@@ -347,7 +349,7 @@ const getCheckboxFilterProps = <T,>(
   }
 }
 
-const getRadioFilterProps = <T,>(baseTableRadioFilterParams: BaseTableRadioFilterParams): BaseColumnType<T> => {
+export const getRadioFilterProps = <T,>(baseTableRadioFilterParams: BaseTableRadioFilterParams): BaseColumnType<T> => {
   const { dataIndex, filter, onFilterChange, ...restProps } = baseTableRadioFilterParams
 
   return {
@@ -419,7 +421,7 @@ const getRadioFilterProps = <T,>(baseTableRadioFilterParams: BaseTableRadioFilte
   }
 }
 
-const getDatePickerFilterProps = <T,>(
+export const getDatePickerFilterProps = <T,>(
   baseTableDatePickerFilterParams: BaseTableDatePickerFilterParams,
 ): BaseColumnType<T> => {
   const { dataIndex, filter, onFilterChange, ...restProps } = baseTableDatePickerFilterParams
@@ -491,7 +493,7 @@ const getDatePickerFilterProps = <T,>(
   }
 }
 
-const getDateTimePickerFilterProps = <T,>(
+export const getDateTimePickerFilterProps = <T,>(
   baseTableDateTimePickerFilterParams: BaseTableDateTimePickerFilterParams,
 ): BaseColumnType<T> => {
   const { dataIndex, filter, onFilterChange, ...restProps } = baseTableDateTimePickerFilterParams
@@ -563,7 +565,7 @@ const getDateTimePickerFilterProps = <T,>(
   }
 }
 
-const getDateRangePickerFilterProps = <T,>(
+export const getDateRangePickerFilterProps = <T,>(
   baseTableDateRangePickerFilterParams: BaseTableDateRangePickerFilterParams,
 ): BaseColumnType<T> => {
   const { dataIndex, filter, onFilterChange, ...restProps } = baseTableDateRangePickerFilterParams
@@ -635,7 +637,7 @@ const getDateRangePickerFilterProps = <T,>(
   }
 }
 
-const getParsedSorter = <T,>(sorter: SorterResult<T> | Array<SorterResult<T>>, defaultValue?: object) => {
+export const getParsedSorter = <T,>(sorter: SorterResult<T> | Array<SorterResult<T>>, defaultValue?: object) => {
   const order = _.get(sorter, 'order')
   const key = _.get(sorter, 'column.sorterDataIndex') ?? _.get(sorter, 'field')
 

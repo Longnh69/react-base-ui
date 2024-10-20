@@ -6,6 +6,7 @@ import BaseButton from '../button/BaseButton'
 import BaseCircleUploadFailedIcon from '../icon/BaseCircleUploadFailedIcon'
 import BaseModal, { type BaseModalProps } from './BaseModal'
 import useBaseStaticModalConfirmStore from './hooks/useBaseStaticModalConfirmStore'
+import BaseCircleUploadIcon from '../icon/BaseCircleUploadIcon'
 import BaseCircleUploadInfoIcon from '../icon/BaseCircleUploadInfoIcon'
 
 export interface BaseStaticModalConfirmProps extends BaseModalProps {
@@ -15,7 +16,7 @@ export interface BaseStaticModalConfirmProps extends BaseModalProps {
 export default function BaseStaticModalConfirm(props: BaseStaticModalConfirmProps) {
   const { className, children: propsChildren, onClose, onCancel, onOk, ...restProps } = props
   const { props: modalProps, setOpen } = useBaseStaticModalConfirmStore()
-  const { status, open, children: modalPropsChildren, ...restModalProps } = modalProps
+  const { status, open, cancelText, okText, children: modalPropsChildren, ...restModalProps } = modalProps
   const { t } = useTranslation()
 
   const handleClose = (event: SyntheticEvent) => {
@@ -50,10 +51,10 @@ export default function BaseStaticModalConfirm(props: BaseStaticModalConfirmProp
       footer={
         <Flex className='justify-between gap-2'>
           <BaseButton type='default' className='w-full border-none bg-light-f2f5f8' onClick={handleCancel}>
-            {t('return', { defaultValue: 'Quay lại' })}
+            {cancelText ? cancelText : t('return', { defaultValue: 'Quay lại' })}
           </BaseButton>
-          <BaseButton type='primary' danger className='w-full' onClick={handleOk}>
-            {t('delete', { defaultValue: 'Xóa' })}
+          <BaseButton type='primary' danger={status === 'error'} className='w-full' onClick={handleOk}>
+            {okText ? okText : t('delete', { defaultValue: 'Xóa' })}
           </BaseButton>
         </Flex>
       }

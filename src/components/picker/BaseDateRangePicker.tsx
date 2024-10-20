@@ -28,44 +28,44 @@ export default forwardRef(function BaseDateRangePicker(props: BaseDateRangePicke
       allowClear
       allowEmpty={[true, true]}
       placeholder={[
-        t('choose', { name: 'start_date', defaultValue: 'Chọn ngày bắt đầu' }),
-        t('choose', { name: 'end_date', defaultValue: 'Chọn ngày kết thúc' }),
+        t('choose', { name: t('start_date'), defaultValue: 'Chọn ngày bắt đầu' }),
+        t('choose', { name: t('end_date'), defaultValue: 'Chọn ngày kết thúc' }),
       ]}
       presets={[
         {
-          label: 'Hôm nay',
+          label: t('today', { defaultValue: 'Hôm nay' }),
           value: [dayjs().startOf('day'), dayjs().endOf('day')],
         },
         {
-          label: '7 ngày trước',
+          label: t('day_ago', { count: 7, defaultValue: '7 ngày trước' }),
           value: [dayjs().subtract(7, 'days').startOf('day'), dayjs().subtract(1, 'day').endOf('day')],
         },
         {
-          label: '15 ngày trước',
+          label: t('day_ago', { count: 15, defaultValue: '15 ngày trước' }),
           value: [dayjs().subtract(15, 'days').startOf('day'), dayjs().subtract(1, 'day').endOf('day')],
         },
         {
-          label: '30 ngày trước',
+          label: t('day_ago', { count: 30, defaultValue: '30 ngày trước' }),
           value: [dayjs().subtract(30, 'days').startOf('day'), dayjs().subtract(1, 'day').endOf('day')],
         },
         {
-          label: 'Tuần này',
+          label: t('this_week', { defaultValue: 'Tuần này' }),
           value: [dayjs().startOf('week'), dayjs().endOf('day')],
         },
         {
-          label: 'Tuần trước',
+          label: t('last_week', { defaultValue: 'Tuần trước' }),
           value: [dayjs().subtract(1, 'week').startOf('week'), dayjs().subtract(1, 'week').endOf('week')],
         },
         {
-          label: 'Tháng này',
+          label: t('this_month', { defaultValue: 'Tháng này' }),
           value: [dayjs().startOf('month'), dayjs().endOf('day')],
         },
         {
-          label: 'Tháng trước',
+          label: t('last_month', { defaultValue: 'Tháng trước' }),
           value: [dayjs().subtract(1, 'month').startOf('month'), dayjs().subtract(1, 'month').endOf('month')],
         },
         {
-          label: 'Năm nay',
+          label: t('this_year', { defaultValue: 'Năm nay' }),
           value: [dayjs().startOf('year'), dayjs().endOf('day')],
         },
       ]}
