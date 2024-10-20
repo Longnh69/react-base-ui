@@ -1,0 +1,73 @@
+import { Flex } from 'antd'
+import { MouseEvent, SyntheticEvent } from 'react'
+import { useTranslation } from 'react-i18next'
+import { twMerge } from 'tailwind-merge'
+import BaseButton from '../button/BaseButton'
+import BaseCircleUploadFailedIcon from '../icon/BaseCircleUploadFailedIcon'
+import BaseModal, { type BaseModalProps } from './BaseModal'
+import useBaseStaticModalConfirmStore from './hooks/useBaseStaticModalConfirmStore'
+import BaseCircleUploadInfoIcon from '../icon/BaseCircleUploadInfoIcon'
+
+export interface BaseStaticModalConfirmProps extends BaseModalProps {
+  status?: 'info' | 'error'
+}
+
+export default function BaseStaticModalConfirm(props: BaseStaticModalConfirmProps) {
+  const { className, children: propsChildren, onClose, onCancel, onOk, ...restProps } = props
+  const { props: modalProps, setOpen } = useBaseStaticModalConfirmStore()
+  const { status, open, children: modalPropsChildren, ...restModalProps } = modalProps
+  const { t } = useTranslation()
+
+  const handleClose = (event: SyntheticEvent) => {
+    onClose?.(event)
+    modalProps?.onClose?.(event)
+    setOpen(false)
+  }
+
+  const handleCancel = (event: MouseEvent<HTMLButtonElement>) => {
+    onCancel?.(event)
+    modalProps?.onCancel?.(event)
+    setOpen(false)
+  }
+
+  const handleOk = (event: MouseEvent<HTMLButtonElement>) => {
+    onOk?.(event)
+    modalProps?.onOk?.(event)
+  }
+
+  return (
+    <BaseModal
+      className={twMerge(
+        `
+          
+        `,
+        className,
+      )}
+      open={open}
+      width={400}
+      centered
+      divider={false}
+      footer={
+        <Flex className='justify-between gap-2'>
+          <BaseButton type='default' className='w-full border-none bg-light-f2f5f8' onClick={handleCancel}>
+            {t('return', { defaultValue: 'Quay lại' })}
+          </BaseButton>
+          <BaseButton type='primary' danger className='w-full' onClick={handleOk}>
+            {t('delete', { defaultValue: 'Xóa' })}
+          </BaseButton>
+        </Flex>
+      }
+      onClose={handleClose}
+      onCancel={handleCancel}
+      onOk={handleOk}
+      {...{ ...restProps, ...restModalProps }}
+    >
+      <Flex className='flex-col items-center justify-center gap-4'>
+        {status === 'error' && <BaseCircleUploadFailedIcon className='h-[72px] w-[72px]' />}
+        {status === 'info' && <BaseCircleUploadInfoIcon className='h-[72px] w-[72px]' />}
+        {propsChildren}
+        {modalPropsChildren}
+      </Flex>
+    </BaseModal>
+  )
+}
