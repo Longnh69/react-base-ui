@@ -255,6 +255,7 @@ const colors = {
     ['fcfcfc']: '#fcfcfc',
     ['fdfdfd1f']: '#fdfdfd1f',
     ['fff6f6']: '#fff6f6',
+    ['f0f0f0']: '#f0f0f0',
   },
   blue: {
     ['001529']: '#001529',

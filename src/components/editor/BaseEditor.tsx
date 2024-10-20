@@ -107,9 +107,14 @@ export default function BaseEditor(props: BaseEditorProps) {
           [&_.ck.ck-content]:dark:bg-dark-141414
         `,
         `
-          [&_.ck.ck-toolbar]:rounded-t-md
           [&_.ck.ck-toolbar]:dark:border-dark-424242
           [&_.ck.ck-toolbar]:dark:bg-dark-141414
+        `,
+        `
+          [&_.ck-rounded-corners_.ck.ck-toolbar]:rounded-t-md
+          ${String.raw`
+            [&_.ck-rounded-corners_.ck.ck-editor\_\_top_.ck-sticky-panel_.ck-sticky-panel\_\_content]:rounded-t-md
+          `}
         `,
         `
           [&_.ck.ck-toolbar_.ck.ck-button.ck-on]:dark:bg-transparent
@@ -353,6 +358,9 @@ export default function BaseEditor(props: BaseEditorProps) {
         }}
         data={newValue || '<p></p>'}
         onReady={(editor) => {
+          editor.editing.view.change((writer) => {
+            writer.setStyle('min-height', '200px', editor.editing.view.document?.getRoot?.()!)
+          })
           console.log('Editor is ready to use!', editor)
         }}
         onChange={(_event, editor) => {
