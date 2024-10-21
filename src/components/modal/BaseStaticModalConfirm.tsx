@@ -4,10 +4,9 @@ import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
 import BaseButton from '../button/BaseButton'
 import BaseCircleUploadFailedIcon from '../icon/BaseCircleUploadFailedIcon'
+import BaseCircleUploadInfoIcon from '../icon/BaseCircleUploadInfoIcon'
 import BaseModal, { type BaseModalProps } from './BaseModal'
 import useBaseStaticModalConfirmStore from './hooks/useBaseStaticModalConfirmStore'
-import BaseCircleUploadIcon from '../icon/BaseCircleUploadIcon'
-import BaseCircleUploadInfoIcon from '../icon/BaseCircleUploadInfoIcon'
 
 export interface BaseStaticModalConfirmProps extends BaseModalProps {
   status?: 'info' | 'error'
