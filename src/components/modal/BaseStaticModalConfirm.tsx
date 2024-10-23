@@ -1,4 +1,5 @@
 import { Flex } from 'antd'
+import _ from 'lodash'
 import { MouseEvent, SyntheticEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
@@ -52,7 +53,7 @@ export default function BaseStaticModalConfirm(props: BaseStaticModalConfirmProp
           <BaseButton type='default' className='w-full border-none bg-light-f2f5f8' onClick={handleCancel}>
             {cancelText ? cancelText : t('return', { defaultValue: 'Quay lại' })}
           </BaseButton>
-          <BaseButton type='primary' danger={status === 'error'} className='w-full' onClick={handleOk}>
+          <BaseButton type='primary' danger={_.eq(status, 'error')} className='w-full' onClick={handleOk}>
             {okText ? okText : t('delete', { defaultValue: 'Xóa' })}
           </BaseButton>
         </Flex>

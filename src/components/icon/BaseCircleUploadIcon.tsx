@@ -1,8 +1,8 @@
 import BaseIcon, { type BaseIconProps } from './BaseIcon'
 
-interface BaseCircleUploadIcon extends BaseIconProps {}
+interface BaseCircleUploadIconProps extends BaseIconProps {}
 
-export default function BaseCircleUploadIcon(props: BaseCircleUploadIcon) {
+export default function BaseCircleUploadIcon(props: BaseCircleUploadIconProps) {
   return (
     <BaseIcon
       component={() => (

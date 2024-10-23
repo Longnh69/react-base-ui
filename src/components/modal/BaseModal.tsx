@@ -3,11 +3,13 @@ import { twMerge } from 'tailwind-merge'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 import BaseDivider from '../divider/BaseDivider'
-import BaseModalConfirmRemoveFacet from './BaseModalConfirmRemoveFacet'
+import BaseModalConfirmErrorFacet from './BaseModalConfirmErrorFacet'
+import BaseModalConfirmInfoFacet from './BaseModalConfirmInfoFacet'
+import BaseModalConfirmSuccessFacet from './BaseModalConfirmSuccessFacet'
 
 export interface BaseModalProps extends ModalProps, PropsWithStyleCss {
   divider?: boolean
-  facet?: 'confirm-remove' | 'default'
+  facet?: 'confirm-error' | 'confirm-success' | 'confirm-info' | 'default'
 }
 
 export default function BaseModal(props: BaseModalProps) {
@@ -15,13 +17,36 @@ export default function BaseModal(props: BaseModalProps) {
   const { dynamicClassName } = useDynamicClassName({ styleCss })
 
   switch (facet) {
-    case 'confirm-remove': {
+    case 'confirm-error': {
       return (
-        <BaseModalConfirmRemoveFacet
+        <BaseModalConfirmErrorFacet
           className={className}
           rootClassName={rootClassName}
           children={children}
-          divider={divider}
+          styleCss={styleCss}
+          {...restProps}
+        />
+      )
+    }
+
+    case 'confirm-success': {
+      return (
+        <BaseModalConfirmSuccessFacet
+          className={className}
+          rootClassName={rootClassName}
+          children={children}
+          styleCss={styleCss}
+          {...restProps}
+        />
+      )
+    }
+
+    case 'confirm-info': {
+      return (
+        <BaseModalConfirmInfoFacet
+          className={className}
+          rootClassName={rootClassName}
+          children={children}
           styleCss={styleCss}
           {...restProps}
         />
