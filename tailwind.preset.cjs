@@ -254,6 +254,7 @@ const colors = {
     ['fafafa']: '#fafafa',
     ['fcfcfc']: '#fcfcfc',
     ['fdfdfd1f']: '#fdfdfd1f',
+    ['c0cbd83d']: '#c0cbd83d',
     ['fff6f6']: '#fff6f6',
     ['f0f0f0']: '#f0f0f0',
   },
@@ -293,11 +294,13 @@ const colors = {
   },
   purple: {
     ['dcd7f8']: '#dcd7f8',
+    ['5e48d4']: '#5e48d4',
   },
   orange: {
     ['d46b08']: '#d46b08',
     ['fa8c16']: '#fa8c16',
     ['fc6b03']: '#fc6b03',
+    ['d57d18']: '#d57d18',
     ['fc8803']: '#fc8803',
     ['ffa940']: '#ffa940',
     ['ffd591']: '#ffd591',
