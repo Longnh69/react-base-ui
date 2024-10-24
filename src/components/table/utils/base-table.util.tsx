@@ -28,6 +28,7 @@ import {
   type BaseTableSelectFilterParams,
 } from '../types/base-table-filter.type'
 import { type BaseTableSorterParams } from '../types/base-table-sorter.type'
+import { Dayjs } from 'dayjs'
 
 export const getColumnMergedCell = <T,>(columns: BaseColumnsType<T>, isEditing?: ((record: T) => boolean) | null) => {
   return _.map(columns, (column, columnIndex) => {
@@ -449,7 +450,7 @@ export const getDatePickerFilterProps = <T,>(
 
       useUpdateEffect(() => {
         if (visible) {
-          const value: Key = filter ? _.get(filter, dataIndex) : searchValue
+          const value = filter ? _.get(filter, dataIndex) : searchValue
           setSelectedKeys(value ? [value] : [])
         }
       }, [visible])
@@ -464,7 +465,7 @@ export const getDatePickerFilterProps = <T,>(
           }}
         >
           <BaseDatePicker
-            value={selectedKeys[0]}
+            value={selectedKeys[0] as unknown as Dayjs}
             onChange={(value) => {
               setSelectedKeys(value ? ([value] as unknown as Key[]) : [])
             }}
