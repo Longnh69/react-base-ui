@@ -4,6 +4,10 @@ import { twMerge } from 'tailwind-merge'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
+export type BaseSegmentedOption = Required<SegmentedProps>['options'][number]
+
+export type BaseSegmentedOptions = Required<SegmentedProps>['options']
+
 export interface BaseSegmentedProps extends SegmentedProps, PropsWithStyleCss {}
 
 export default forwardRef(function BaseSegmented(props: BaseSegmentedProps, ref: Ref<HTMLDivElement> | any) {
