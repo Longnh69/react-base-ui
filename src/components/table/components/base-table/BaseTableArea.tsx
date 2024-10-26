@@ -61,7 +61,6 @@ export default function BaseTableArea<T extends Record<PropertyKey, any>>(props:
               break
             }
           }
-
           onChange?.(pagination, filters, sorter, extra)
         }}
         pagination={false}
