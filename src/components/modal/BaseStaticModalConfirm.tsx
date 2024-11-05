@@ -6,11 +6,12 @@ import { twMerge } from 'tailwind-merge'
 import BaseButton from '../button/BaseButton'
 import BaseCircleUploadFailedIcon from '../icon/BaseCircleUploadFailedIcon'
 import BaseCircleUploadInfoIcon from '../icon/BaseCircleUploadInfoIcon'
+import BaseCircleUploadSuccessIcon from '../icon/BaseCircleUploadSuccessIcon'
 import BaseModal, { type BaseModalProps } from './BaseModal'
 import useBaseStaticModalConfirmStore from './hooks/useBaseStaticModalConfirmStore'
 
 export interface BaseStaticModalConfirmProps extends BaseModalProps {
-  status?: 'info' | 'error'
+  status?: 'info' | 'error' | 'success'
 }
 
 export default function BaseStaticModalConfirm(props: BaseStaticModalConfirmProps) {
@@ -66,6 +67,7 @@ export default function BaseStaticModalConfirm(props: BaseStaticModalConfirmProp
       <Flex className='flex-col items-center justify-center gap-4'>
         {status === 'error' && <BaseCircleUploadFailedIcon className='h-[72px] w-[72px]' />}
         {status === 'info' && <BaseCircleUploadInfoIcon className='h-[72px] w-[72px]' />}
+        {status === 'success' && <BaseCircleUploadSuccessIcon className='h-[72px] w-[72px] text-blue-366ae2' />}
         {propsChildren}
         {modalPropsChildren}
       </Flex>
