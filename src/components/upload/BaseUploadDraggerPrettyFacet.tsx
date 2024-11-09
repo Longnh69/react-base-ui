@@ -17,13 +17,16 @@ import { type BaseUploadProps } from './BaseUpload'
 import BaseUploadDragger, { type BaseUploadDraggerProps } from './BaseUploadDragger'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 
-export interface BaseUploadDraggerPrettyFacetProps extends Omit<BaseUploadDraggerProps, 'facet'> {}
+export interface BaseUploadDraggerPrettyFacetProps extends Omit<BaseUploadDraggerProps, 'facet'> {
+  title?: string
+  description?: string
+}
 
 export default forwardRef(function BaseUploadDraggerPrettyFacet(
   props: BaseUploadDraggerPrettyFacetProps,
   ref: Ref<UploadRef<any>>,
 ) {
-  const { className, styleCss, fileList, maxTextLength = 50, onChange, ...restProps } = props
+  const { className, styleCss, fileList, maxTextLength = 50, onChange, title, description, ...restProps } = props
 
   const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
@@ -157,10 +160,10 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
           <BaseCircleUploadIcon className='flex h-14 w-14' />
           <BaseTypography className='flex flex-col items-start justify-center'>
             <BaseTitle className='text-dark m-0 text-base font-semibold'>
-              Nhấp hoặc kéo tệp vào đây để tải lên
+              {title || 'Nhấp hoặc kéo tệp vào đây để tải lên'}
             </BaseTitle>
             <BaseText className='text-justify text-xs font-normal  text-dark-60'>
-              CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn 20 MB.
+              {description || 'CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn 20 MB.'}
             </BaseText>
             <div className='flex gap-4'></div>
           </BaseTypography>
