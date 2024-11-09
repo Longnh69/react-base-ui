@@ -20,13 +20,24 @@ import useDynamicClassName from '../../hooks/useDynamicClassName'
 export interface BaseUploadDraggerPrettyFacetProps extends Omit<BaseUploadDraggerProps, 'facet'> {
   title?: string
   description?: string
+  extraButton?: React.ReactNode
 }
 
 export default forwardRef(function BaseUploadDraggerPrettyFacet(
   props: BaseUploadDraggerPrettyFacetProps,
   ref: Ref<UploadRef<any>>,
 ) {
-  const { className, styleCss, fileList, maxTextLength = 50, onChange, title, description, ...restProps } = props
+  const {
+    className,
+    styleCss,
+    fileList,
+    maxTextLength = 50,
+    onChange,
+    title,
+    description,
+    extraButton,
+    ...restProps
+  } = props
 
   const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
@@ -168,7 +179,8 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
             <div className='flex gap-4'></div>
           </BaseTypography>
         </div>
-        <div className='flex items-center'>
+        <div className='flex items-center gap-2'>
+          {extraButton}
           <BaseButton className='text-sm font-semibold'>Chọn tệp</BaseButton>
         </div>
       </div>
