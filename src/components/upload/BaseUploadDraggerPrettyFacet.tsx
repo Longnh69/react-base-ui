@@ -43,7 +43,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
   const { dynamicClassName } = useDynamicClassName({ styleCss })
   const { t } = useTranslation()
 
-  const [newFileList, setNewFileList] = useState<UploadFile[]>(fileList || [])
+  const [newFileList, setNewFileList] = useState<UploadFile[]>(fileList ?? [])
 
   const handleChange: BaseUploadProps['onChange'] = ({ file, fileList, event }) => {
     const uniqFileList = _.uniqWith(fileList, (firstFile, secondFile) => {
@@ -60,7 +60,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
   }
 
   const handlePreview: BaseUploadProps['onPreview'] = async (file) => {
-    let src = file.url as string
+    let src: string | undefined = file.url
 
     if (!src && file.originFileObj) {
       src = await getBase64(file.originFileObj)
@@ -69,7 +69,9 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
     const image = new Image()
     const imgWindow = window.open(src)
 
-    image.src = src
+    if (src) {
+      image.src = src
+    }
     imgWindow?.document.write(image.outerHTML)
   }
 
@@ -118,7 +120,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
                   <BaseButton size='large' className='overflow-hidden px-0 py-1'>
                     <BaseImage
                       className='h-10 w-10 object-cover p-1 py-1.5'
-                      src={url || URL.createObjectURL(file.originFileObj as Blob)}
+                      src={url ?? URL.createObjectURL(file.originFileObj as Blob)}
                     />
                   </BaseButton>
                 )
@@ -128,7 +130,6 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
                 <BaseButton
                   size='large'
                   onClick={() => {
-                    // console.log('file::', file)
                     if (url) {
                       handleDownloadFileByOriginfileOrURL(file, url)
                     } else {
@@ -207,10 +208,10 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
           <BaseCircleUploadIcon className='flex h-14 w-14' />
           <BaseTypography className='flex flex-col items-start justify-center'>
             <BaseTitle className='text-dark m-0 text-base font-semibold'>
-              {title || 'Nhấp hoặc kéo tệp vào đây để tải lên'}
+              {title ?? 'Nhấp hoặc kéo tệp vào đây để tải lên'}
             </BaseTitle>
             <BaseText className='text-justify text-xs font-normal  text-dark-60'>
-              {description || 'CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn 20 MB.'}
+              {description ?? 'CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn 20 MB.'}
             </BaseText>
             <div className='flex gap-4'></div>
           </BaseTypography>
