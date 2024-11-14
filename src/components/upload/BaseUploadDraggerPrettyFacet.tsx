@@ -10,7 +10,7 @@ import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { getBase64 } from '../../utils/file.util'
 import BaseButton from '../button/BaseButton'
 import BaseCircleUploadIcon from '../icon/BaseCircleUploadIcon'
-import BaseFileIcon from '../icon/BaseFileIcon'
+import BaseDocumentFileIcon from '../icon/BaseDocumentFileIcon'
 import BaseImage from '../image/BaseImage'
 import BaseText from '../typography/BaseText'
 import BaseTitle from '../typography/BaseTitle'
@@ -117,9 +117,9 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
             {(() => {
               if (_.startsWith(type, 'image')) {
                 return (
-                  <BaseButton size='large' className='overflow-hidden px-0 py-1'>
+                  <BaseButton className='overflow-hidden border-none px-0 py-1 shadow-sm'>
                     <BaseImage
-                      className='h-10 w-10 object-cover p-1 py-1.5'
+                      className='h-8 w-8 object-cover p-1 py-1.5'
                       src={url ?? URL.createObjectURL(file.originFileObj as Blob)}
                     />
                   </BaseButton>
@@ -128,7 +128,8 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
 
               return (
                 <BaseButton
-                  size='large'
+                  // size='lmearge'
+                  className='border-none p-0 shadow-sm'
                   onClick={() => {
                     if (url) {
                       handleDownloadFileByOriginfileOrURL(file, url)
@@ -136,7 +137,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
                       handleDownloadFileByOriginfileOrURL(file)
                     }
                   }}
-                  icon={<BaseFileIcon />}
+                  icon={<BaseDocumentFileIcon className='h-6 w-6 text-gray-500' />}
                 ></BaseButton>
               )
             })()}
