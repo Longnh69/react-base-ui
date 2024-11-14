@@ -1,21 +1,22 @@
 import { DeleteOutlined, DownloadOutlined } from '@ant-design/icons'
-import { Flex, UploadFile } from 'antd'
+import { Flex, type UploadFile } from 'antd'
 import { type UploadRef } from 'antd/es/upload/Upload'
 import { filesize } from 'filesize'
 import _ from 'lodash'
 import { forwardRef, useState, type Ref } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
+import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { getBase64 } from '../../utils/file.util'
 import BaseButton from '../button/BaseButton'
 import BaseCircleUploadIcon from '../icon/BaseCircleUploadIcon'
+import BaseFileIcon from '../icon/BaseFileIcon'
 import BaseImage from '../image/BaseImage'
 import BaseText from '../typography/BaseText'
 import BaseTitle from '../typography/BaseTitle'
 import BaseTypography from '../typography/BaseTypography'
 import { type BaseUploadProps } from './BaseUpload'
 import BaseUploadDragger, { type BaseUploadDraggerProps } from './BaseUploadDragger'
-import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 export interface BaseUploadDraggerPrettyFacetProps extends Omit<BaseUploadDraggerProps, 'facet'> {
   title?: string
@@ -72,9 +73,40 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
     imgWindow?.document.write(image.outerHTML)
   }
 
+  // handle dowload file
+  const handleDownloadFileByOriginfileOrURL = async (file: UploadFile, url?: string) => {
+    try {
+      if (url) {
+        const response = await fetch(url)
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        const blob = await response.blob()
+        const link = document.createElement('a')
+        link.href = window.URL.createObjectURL(blob)
+        link.download = file.name // Sets the correct file name
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+        window.URL.revokeObjectURL(link.href) // Cleanup the object URL
+      } else {
+        const downloadUrl = URL.createObjectURL(file.originFileObj as Blob)
+        const link = document.createElement('a')
+        link.href = downloadUrl
+        link.download = file.name
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      }
+    } catch (error) {
+      console.error('File download failed:', error)
+    }
+  }
+
   const getItemRender: BaseUploadProps['itemRender'] = (_originNode, file, _fileList, actions) => {
     const { name, url, type, size = 0 } = file
-    const { download, preview, remove } = actions
+    console.log('file::', file)
+    const { download, remove } = actions
 
     return (
       <Flex className='h-14 w-full items-center justify-between rounded-md border p-2'>
@@ -83,25 +115,28 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
             {(() => {
               if (_.startsWith(type, 'image')) {
                 return (
-                  <BaseImage
-                    className='h-10 w-10 object-cover p-1'
-                    src={url || URL.createObjectURL(file.originFileObj as Blob)}
-                  />
+                  <BaseButton size='large' className='overflow-hidden px-0 py-1'>
+                    <BaseImage
+                      className='h-10 w-10 object-cover p-1 py-1.5'
+                      src={url || URL.createObjectURL(file.originFileObj as Blob)}
+                    />
+                  </BaseButton>
                 )
               }
 
               return (
-                <BaseImage
-                  className='h-10 w-10 object-cover p-1'
-                  src={url || URL.createObjectURL(file.originFileObj as Blob)}
-                  preview={{
-                    src: file.url,
-                    visible: false,
-                    onVisibleChange: () => {
-                      preview()
-                    },
+                <BaseButton
+                  size='large'
+                  onClick={() => {
+                    // console.log('file::', file)
+                    if (url) {
+                      handleDownloadFileByOriginfileOrURL(file, url)
+                    } else {
+                      handleDownloadFileByOriginfileOrURL(file)
+                    }
                   }}
-                />
+                  icon={<BaseFileIcon />}
+                ></BaseButton>
               )
             })()}
           </Flex>
@@ -163,6 +198,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
       beforeUpload={() => false}
       onChange={handleChange}
       onPreview={handlePreview}
+      onDownload={handleDownloadFileByOriginfileOrURL}
       fileList={newFileList}
       {...restProps}
     >
