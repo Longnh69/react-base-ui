@@ -32,7 +32,7 @@ export default forwardRef(function BaseAvatar(props: BaseAvatarProps, ref: Ref<H
       {children ??
         (fallbackShowName && name && !src && (
           <BaseTypography
-            className={twMerge('flex items-center justify-center text-base font-medium text-white', fallbackClassName)}
+            className={twMerge('flex items-center justify-center font-medium text-white', fallbackClassName)}
           >
             {convertFullNameToImageName(name ?? '')}
           </BaseTypography>
