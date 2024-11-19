@@ -3,7 +3,7 @@ import { type UploadRef } from 'antd/es/upload/Upload'
 import { forwardRef, type Ref } from 'react'
 import { twMerge } from 'tailwind-merge'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
-import { BaseUploadProps } from './BaseUpload'
+import { type BaseUploadProps } from './BaseUpload'
 import BaseUploadDraggerPrettyFacet from './BaseUploadDraggerPrettyFacet'
 
 const { Dragger } = Upload

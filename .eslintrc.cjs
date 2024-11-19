@@ -48,8 +48,14 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off', // Dùng any
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/lines-between-class-members': 'off',
+    '@typescript-eslint/no-throw-literal': 'off',
+    '@typescript-eslint/no-empty-object-type': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/unbound-method': 'off',
     'prefer-promise-reject-errors': 'off', // Promis.reject chỉ trả về string | number | null
     'react-hooks/exhaustive-deps': 'off',
     'react-hooks/rules-of-hooks': 'off',
+    'no-empty-pattern': 'off',
   },
 }
