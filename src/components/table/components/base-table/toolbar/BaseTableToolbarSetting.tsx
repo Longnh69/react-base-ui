@@ -115,7 +115,7 @@ export default function BaseTableToolbarSetting<T>(props: BaseTableToolbarSettin
                       ) : (
                         <></>
                       )}
-                      <Flex className='bg-dark-141414 rounded-md p-2'>
+                      <Flex className='rounded-md bg-dark-141414 p-2'>
                         <Row gutter={[8, 8]} className='w-full'>
                           <DndContext
                             collisionDetection={closestCenter}

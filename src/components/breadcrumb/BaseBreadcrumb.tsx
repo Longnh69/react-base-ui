@@ -17,7 +17,7 @@ export default function BaseBreadcrumb(props: BaseBreadcrumbProps) {
     <Breadcrumb
       className={twMerge(
         `
-          dark:bg-dark-09090b w-full bg-white p-4
+          w-full bg-white p-4 dark:bg-dark-09090b
         `,
         className,
         dynamicClassName,
