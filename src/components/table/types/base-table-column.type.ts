@@ -41,7 +41,7 @@ type MoreColumnType<T> = EditableColumnType<T> &
     id?: number
   }
 
-export type BaseColumnType<T> = ColumnType<T> & MoreColumnType<T> & {}
+export type BaseColumnType<T> = ColumnType<T> & MoreColumnType<T>
 
 export type BaseColumnGroupType<T> = Omit<BaseColumnType<T>, 'dataIndex' | keyof MoreColumnType<T>> & {
   id?: number

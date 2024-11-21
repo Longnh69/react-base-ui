@@ -10,7 +10,7 @@ import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
 export type BaseDateTimePickerValue = ComponentProps<typeof DatePicker>['value']
 
-export type BaseDateTimePickerProps = DatePickerProps & Partial<PickerPanelProps> & PropsWithStyleCss & {}
+export type BaseDateTimePickerProps = DatePickerProps & Partial<PickerPanelProps> & PropsWithStyleCss
 
 export default forwardRef(function BaseDateTimePicker(props: BaseDateTimePickerProps, ref: Ref<any> | null) {
   const { className, styleCss, ...restProps } = props

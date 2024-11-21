@@ -1,9 +1,9 @@
-import { GetProps, Skeleton, type SkeletonProps } from 'antd'
+import { type GetProps, Skeleton, type SkeletonProps } from 'antd'
 import { twMerge } from 'tailwind-merge'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
-import { PropsWithStyleCss } from '../../types/props-with-style-css.type'
+import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
-export type BaseSkeletonImageProps = SkeletonProps & GetProps<typeof Skeleton.Image> & PropsWithStyleCss & {}
+export type BaseSkeletonImageProps = SkeletonProps & GetProps<typeof Skeleton.Image> & PropsWithStyleCss
 
 export default function BaseSkeletonImage(props: BaseSkeletonImageProps) {
   const { className, styleCss, ...restProps } = props

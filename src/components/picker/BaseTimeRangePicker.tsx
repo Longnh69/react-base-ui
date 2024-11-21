@@ -1,6 +1,6 @@
 import { TimePicker } from 'antd'
-import { RangePickerProps } from 'antd/es/date-picker'
-import { Dayjs } from 'dayjs'
+import { type RangePickerProps } from 'antd/es/date-picker'
+import { type Dayjs } from 'dayjs'
 import { type RangePickerProps as PickerPanelTimeRangeProps } from 'rc-picker/lib'
 import { forwardRef, type ComponentProps, type Ref } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -12,9 +12,7 @@ const { RangePicker } = TimePicker
 
 export type BaseTimeRangePickerValue = ComponentProps<typeof RangePicker>['value']
 
-export type BaseTimeRangePickerProps = RangePickerProps &
-  Partial<PickerPanelTimeRangeProps<Dayjs>> &
-  PropsWithStyleCss & {}
+export type BaseTimeRangePickerProps = RangePickerProps & Partial<PickerPanelTimeRangeProps<Dayjs>> & PropsWithStyleCss
 
 export default forwardRef(function BaseTimeRangePicker(props: BaseTimeRangePickerProps, ref: Ref<any> | null) {
   const { className, styleCss, ...restProps } = props

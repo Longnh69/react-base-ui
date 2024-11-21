@@ -7,7 +7,7 @@ import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
 export type BaseTimePickerValue = ComponentProps<typeof TimePicker>['value']
 
-export type BaseTimePickerProps = TimePickerProps & PropsWithStyleCss & {}
+export type BaseTimePickerProps = TimePickerProps & PropsWithStyleCss
 
 export default forwardRef(function BaseTimePicker(props: BaseTimePickerProps, ref: Ref<any> | null) {
   const { className, styleCss, ...restProps } = props

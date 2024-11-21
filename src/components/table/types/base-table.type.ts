@@ -12,11 +12,11 @@ import { type BaseDateTimePickerProps } from '../../picker/BaseDateTimePicker'
 import { type BaseTimePickerProps } from '../../picker/BaseTimePicker'
 import { type BaseRadioGroupProps } from '../../radio/BaseRadioGroup'
 import { type BaseSelectProps } from '../../select/BaseSelect'
-import { type BaseTreeSelectProps } from '../../tree-select/BaseTreeSelect'
 import { type BaseSwitchProps } from '../../switch/BaseSwitch'
+import { type BaseTreeSelectProps } from '../../tree-select/BaseTreeSelect'
 import { type BaseTableToolbarProps } from './base-table-toolbar.type'
 
-type AnyObjectWithT<T> = AnyObject & T & {}
+type AnyObjectWithT<T> = AnyObject & T
 
 export type DataIndex<T = any> = GetProp<TableColumnProps<AnyObjectWithT<T>>, 'dataIndex'>
 

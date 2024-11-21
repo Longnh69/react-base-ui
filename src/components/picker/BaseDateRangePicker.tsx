@@ -12,9 +12,7 @@ const { RangePicker } = DatePicker
 
 export type BaseDateRangePickerValue = ComponentProps<typeof RangePicker>['value']
 
-export type BaseDateRangePickerProps = RangePickerProps &
-  Partial<PickerPanelDateRangeProps<Dayjs>> &
-  PropsWithStyleCss & {}
+export type BaseDateRangePickerProps = RangePickerProps & Partial<PickerPanelDateRangeProps<Dayjs>> & PropsWithStyleCss
 
 export default forwardRef(function BaseDateRangePicker(props: BaseDateRangePickerProps, ref: Ref<any> | null) {
   const { className, styleCss, ...restProps } = props

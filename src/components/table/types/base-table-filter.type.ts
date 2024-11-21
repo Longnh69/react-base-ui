@@ -11,16 +11,16 @@ export type BaseTableFilterParams = BaseTableFilterType & {
   dataIndex: DataIndex
 }
 
-export type BaseTableInputFilterParams = BaseTableFilterParams & BaseInputProps & {}
+export type BaseTableInputFilterParams = BaseTableFilterParams & BaseInputProps
 
-export type BaseTableSelectFilterParams = BaseTableFilterParams & BaseSelectProps & {}
+export type BaseTableSelectFilterParams = BaseTableFilterParams & BaseSelectProps
 
-export type BaseTableCheckboxFilterParams = BaseTableFilterParams & BaseCheckboxGroupProps & {}
+export type BaseTableCheckboxFilterParams = BaseTableFilterParams & BaseCheckboxGroupProps
 
-export type BaseTableRadioFilterParams = BaseTableFilterParams & BaseRadioGroupProps & {}
+export type BaseTableRadioFilterParams = BaseTableFilterParams & BaseRadioGroupProps
 
-export type BaseTableDatePickerFilterParams = BaseTableFilterParams & BaseDatePickerProps & {}
+export type BaseTableDatePickerFilterParams = BaseTableFilterParams & BaseDatePickerProps
 
-export type BaseTableDateTimePickerFilterParams = BaseTableFilterParams & BaseDateTimePickerProps & {}
+export type BaseTableDateTimePickerFilterParams = BaseTableFilterParams & BaseDateTimePickerProps
 
-export type BaseTableDateRangePickerFilterParams = BaseTableFilterParams & BaseDateRangePickerProps & {}
+export type BaseTableDateRangePickerFilterParams = BaseTableFilterParams & BaseDateRangePickerProps

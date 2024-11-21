@@ -1,5 +1,5 @@
-import { DatePicker, GetProps } from 'antd'
-import { Dayjs } from 'dayjs'
+import { DatePicker, type GetProps } from 'antd'
+import { type Dayjs } from 'dayjs'
 import { forwardRef, type ComponentProps, type Ref } from 'react'
 import { useTranslation } from 'react-i18next'
 import { twMerge } from 'tailwind-merge'
@@ -8,7 +8,7 @@ import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
 export type BaseDatePickerValue = ComponentProps<typeof DatePicker>['value']
 
-export type BaseDatePickerProps<ValueType = Dayjs> = GetProps<typeof DatePicker<ValueType>> & PropsWithStyleCss & {}
+export type BaseDatePickerProps<ValueType = Dayjs> = GetProps<typeof DatePicker<ValueType>> & PropsWithStyleCss
 
 export default forwardRef(function BaseDatePicker(props: BaseDatePickerProps, ref: Ref<any> | null) {
   const { className, styleCss, ...restProps } = props

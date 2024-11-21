@@ -28,4 +28,4 @@ export type BaseTableBodyCellProps = HTMLAttributes<any> &
       | boolean
   }
 
-export type BaseTableHeaderCellProps = HTMLAttributes<any> & ThHTMLAttributes<any> & BaseTableCellAnimation & {}
+export type BaseTableHeaderCellProps = HTMLAttributes<any> & ThHTMLAttributes<any> & BaseTableCellAnimation
