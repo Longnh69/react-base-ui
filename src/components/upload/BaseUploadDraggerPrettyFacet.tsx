@@ -209,17 +209,21 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
           <BaseCircleUploadIcon className='flex h-14 w-14' />
           <BaseTypography className='flex flex-col items-start justify-center'>
             <BaseTitle className='text-dark m-0 text-base font-semibold'>
-              {title ?? 'Nhấp hoặc kéo tệp vào đây để tải lên'}
+              {title ??
+                t('click_or_drag_file_here_to_upload', { defaultValue: 'Nhấp hoặc kéo tệp vào đây để tải lên' })}
             </BaseTitle>
             <BaseText className='text-justify text-xs font-normal  text-dark-60'>
-              {description ?? 'CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn 20 MB.'}
+              {description ??
+                t('csv_xls_or_xlsx_file_size_less_than_20_mb', {
+                  defaultValue: 'CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn 20 MB.',
+                })}
             </BaseText>
             <div className='flex gap-4'></div>
           </BaseTypography>
         </div>
         <div className='flex items-center gap-2'>
           {extraButton}
-          <BaseButton className='text-sm font-semibold'>Chọn tệp</BaseButton>
+          <BaseButton className='text-sm font-semibold'>{t('choose_file', { defaultValue: 'Chọn tệp' })}</BaseButton>
         </div>
       </div>
     </BaseUploadDragger>
