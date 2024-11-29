@@ -12,7 +12,7 @@ interface BaseFileLabelProps {
   name: string
   size: number
   icon?: ReactNode | boolean
-  max?: number
+  max?: number | null
 }
 
 export default function BaseFileLabel(props: BaseFileLabelProps) {
