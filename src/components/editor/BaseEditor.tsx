@@ -54,12 +54,12 @@ import {
   WordCount,
 } from 'ckeditor5'
 import 'ckeditor5/ckeditor5.css'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDebounce } from 'react-use'
 import { twMerge } from 'tailwind-merge'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
-import { PropsWithClassName } from '../../types/props-with-class-name.type'
+import { type PropsWithClassName } from '../../types/props-with-class-name.type'
 import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
 export interface BaseEditorProps extends PropsWithClassName, PropsWithStyleCss {
@@ -71,12 +71,17 @@ export default function BaseEditor(props: BaseEditorProps) {
   const { className, styleCss, value, onChange } = props
   const { t } = useTranslation()
   const { dynamicClassName } = useDynamicClassName({ styleCss })
+  const firstRenderRef = useRef(false)
 
   const [newValue, setNewValue] = useState(value)
 
   useDebounce(
     () => {
-      onChange?.(newValue || '')
+      if (!firstRenderRef.current) {
+        firstRenderRef.current = true
+      } else {
+        onChange?.(newValue ?? '')
+      }
     },
     100,
     [newValue],
@@ -356,9 +361,10 @@ export default function BaseEditor(props: BaseEditorProps) {
             ],
           },
         }}
-        data={newValue || '<p></p>'}
+        data={newValue ?? '<p></p>'}
         onReady={(editor) => {
           editor.editing.view.change((writer) => {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
             writer.setStyle('min-height', '200px', editor.editing.view.document?.getRoot?.()!)
           })
           console.log('Editor is ready to use!', editor)
