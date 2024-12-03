@@ -1,6 +1,6 @@
 import { twMerge } from 'tailwind-merge'
 import { v4 as uuidv4 } from 'uuid'
-import BaseTabs, { BaseTabsProps } from './BaseTabs'
+import BaseTabs, { type BaseTabsProps } from './BaseTabs'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 export interface BaseTabsRoundedFacetProps extends Omit<BaseTabsProps, 'facet'> {}
