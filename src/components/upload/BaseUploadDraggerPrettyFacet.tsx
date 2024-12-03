@@ -214,9 +214,7 @@ export default forwardRef(function BaseUploadDraggerPrettyFacet(
             </BaseTitle>
             <BaseText className='text-justify text-xs font-normal  text-dark-60'>
               {description ??
-                t('csv_xls_or_xlsx_file_size_less_than_20_mb', {
-                  defaultValue: 'CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn 20 MB.',
-                })}
+                t('file_size_less_mb', { defaultValue: 'CSV, XLS hoặc XLSX, kích thước tệp nhỏ hơn 20 MB.' })}
             </BaseText>
             <div className='flex gap-4'></div>
           </BaseTypography>
