@@ -2,10 +2,10 @@ import { Typography } from 'antd'
 import { type TypographyProps } from 'antd/es/typography/Typography'
 import _ from 'lodash'
 import { forwardRef, type Ref } from 'react'
-import BaseTooltip, { type BaseTooltipProps } from '../tooltip/BaseTooltip'
 import { twMerge } from 'tailwind-merge'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
+import BaseTooltip, { type BaseTooltipProps } from '../tooltip/BaseTooltip'
 
 export interface BaseTypographyProps<T extends keyof JSX.IntrinsicElements>
   extends TypographyProps<T>,
