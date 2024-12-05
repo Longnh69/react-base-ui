@@ -210,3 +210,25 @@ input:-webkit-autofill {
   -webkit-text-fill-color: #ffffff;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 12px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 32px;
+    background: #f7f4ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #c7d0d8;
+    border-radius: 100vh;
+    border: 2px solid #dde1e7;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #dde1e7;
+  }
+}
