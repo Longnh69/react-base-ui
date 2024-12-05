@@ -213,22 +213,22 @@ input:-webkit-autofill {
 
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
     height: 12px;
   }
 
   .scrollbar::-webkit-scrollbar-track {
     border-radius: 32px;
-    background: #f7f4ed;
+    background: #e7e7e7;
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
-    background: #c7d0d8;
+    background: #c7c7c7;
     border-radius: 100vh;
-    border: 2px solid #dde1e7;
+    border: 2px solid #c7c7c7;
   }
 
   .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #dde1e7;
+    background: #bcbcbc;
   }
 }
