@@ -1,5 +1,5 @@
 import { Collapse, type CollapseProps } from 'antd'
-import { forwardRef, LegacyRef } from 'react'
+import { forwardRef, type LegacyRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
