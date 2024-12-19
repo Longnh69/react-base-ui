@@ -21,7 +21,13 @@ export default function BaseEmpty(props: BaseEmptyProps) {
         className,
         dynamicClassName,
       )}
-      description={description ?? <Typography className='select-none text-dark-80'>{t('no_data')}</Typography>}
+      description={
+        description ?? (
+          <Typography className='select-none text-dark-80 dark:text-white dark:text-opacity-80'>
+            {t('no_data')}
+          </Typography>
+        )
+      }
       {...restProps}
     />
   )
