@@ -1,3 +1,4 @@
+import { ReloadOutlined } from '@ant-design/icons'
 import { useTranslation } from 'react-i18next'
 import BaseButton from '../button/BaseButton'
 import BaseTitle from '../typography/BaseTitle'
@@ -16,10 +17,16 @@ export default function BaseErrorFallback(_props: BaseErrorFallbackProps) {
       <div className='flex flex-col gap-8'>
         <div>
           <BaseTitle className='text-dark-5f5f5f'>Oops!</BaseTitle>
-          <BaseTypography className='text-dark-8c8c8c'>Có lỗi phát sinh, vui lòng thử lại</BaseTypography>
+          <BaseTypography className='text-dark-8c8c8c'>
+            {t('message.error_boundary', {
+              defaultValue: 'Có lỗi phát sinh hoặc hệ thống đã được cập nhập phiên bản mới, vui lòng thử lại.',
+            })}
+          </BaseTypography>
         </div>
         <div>
           <BaseButton
+            type='primary'
+            icon={<ReloadOutlined />}
             onClick={() => {
               window.location.reload()
             }}
