@@ -50,6 +50,7 @@ import {
   TableProperties,
   TableToolbar,
   TextTransformation,
+  type ToolbarConfigItem,
   Underline,
   WordCount,
 } from 'ckeditor5'
@@ -64,16 +65,103 @@ import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
 export interface BaseEditorProps extends PropsWithClassName, PropsWithStyleCss {
   value?: string
+  facet?: 'default' | 'mail'
   onChange?: (value: string) => void
 }
 
 export default function BaseEditor(props: BaseEditorProps) {
-  const { className, styleCss, value, onChange } = props
+  const { className, styleCss, value, facet = 'default', onChange } = props
   const { t } = useTranslation()
   const { dynamicClassName } = useDynamicClassName({ styleCss })
   const firstRenderRef = useRef(false)
 
   const [newValue, setNewValue] = useState(value)
+
+  let items: ToolbarConfigItem[] = [
+    'undo',
+    'redo',
+    '|',
+    'exportPdf',
+    'exportWord',
+    'importWord',
+    '|',
+    'showBlocks',
+    'formatPainter',
+    'findAndReplace',
+    'selectAll',
+    'wproofreader',
+    '|',
+    'heading',
+    '|',
+    'style',
+    '|',
+    'fontSize',
+    'fontFamily',
+    'fontColor',
+    'fontBackgroundColor',
+    '-',
+    'bold',
+    'italic',
+    'underline',
+    {
+      label: 'Formatting',
+      icon: 'text',
+      items: ['strikethrough', 'subscript', 'superscript', 'code', 'horizontalLine', '|', 'removeFormat'],
+    },
+    'specialCharacters',
+    'pageBreak',
+    '|',
+    '|',
+    '|',
+    '|',
+    '|',
+    'link',
+    'insertImage',
+    'ckbox',
+    'insertTable',
+    'tableOfContents',
+    'insertTemplate',
+    {
+      label: 'Insert',
+      icon: 'plus',
+      items: ['highlight', 'blockQuote', 'mediaEmbed', 'codeBlock', 'htmlEmbed'],
+    },
+    '|',
+    'alignment',
+    '|',
+    'bulletedList',
+    'numberedList',
+    'todoList',
+    'outdent',
+    'indent',
+    '|',
+    'sourceEditing',
+  ]
+
+  switch (facet) {
+    case 'mail': {
+      items = [
+        'undo',
+        'redo',
+        '|',
+        'bold',
+        'italic',
+        'underline',
+        '|',
+        'link',
+        'insertImage',
+        '|',
+        'alignment',
+        '|',
+        'bulletedList',
+        'numberedList',
+        '|',
+        'sourceEditing',
+      ]
+
+      break
+    }
+  }
 
   useDebounce(
     () => {
@@ -210,66 +298,7 @@ export default function BaseEditor(props: BaseEditorProps) {
             WordCount,
           ],
           toolbar: {
-            items: [
-              'undo',
-              'redo',
-              '|',
-              'exportPdf',
-              'exportWord',
-              'importWord',
-              '|',
-              'showBlocks',
-              'formatPainter',
-              'findAndReplace',
-              'selectAll',
-              'wproofreader',
-              '|',
-              'heading',
-              '|',
-              'style',
-              '|',
-              'fontSize',
-              'fontFamily',
-              'fontColor',
-              'fontBackgroundColor',
-              '-',
-              'bold',
-              'italic',
-              'underline',
-              {
-                label: 'Formatting',
-                icon: 'text',
-                items: ['strikethrough', 'subscript', 'superscript', 'code', 'horizontalLine', '|', 'removeFormat'],
-              },
-              'specialCharacters',
-              'pageBreak',
-              '|',
-              '|',
-              '|',
-              '|',
-              '|',
-              'link',
-              'insertImage',
-              'ckbox',
-              'insertTable',
-              'tableOfContents',
-              'insertTemplate',
-              {
-                label: 'Insert',
-                icon: 'plus',
-                items: ['highlight', 'blockQuote', 'mediaEmbed', 'codeBlock', 'htmlEmbed'],
-              },
-              '|',
-              'alignment',
-              '|',
-              'bulletedList',
-              'numberedList',
-              'todoList',
-              'outdent',
-              'indent',
-              '|',
-              'sourceEditing',
-            ],
+            items,
             shouldNotGroupWhenFull: true,
           },
           htmlSupport: {
