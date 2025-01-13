@@ -9,6 +9,7 @@ import {
   BlockQuote,
   Bold,
   ClassicEditor,
+  ClipboardPipeline,
   Code,
   CodeBlock,
   Essentials,
@@ -65,7 +66,7 @@ import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
 export interface BaseEditorProps extends PropsWithClassName, PropsWithStyleCss {
   value?: string
-  facet?: 'default' | 'mail'
+  facet?: 'default' | 'simple'
   onChange?: (value: string) => void
 }
 
@@ -139,10 +140,15 @@ export default function BaseEditor(props: BaseEditorProps) {
   ]
 
   switch (facet) {
-    case 'mail': {
+    case 'simple': {
       items = [
         'undo',
         'redo',
+        '|',
+        'fontSize',
+        'fontFamily',
+        'fontColor',
+        'fontBackgroundColor',
         '|',
         'bold',
         'italic',
@@ -255,6 +261,7 @@ export default function BaseEditor(props: BaseEditorProps) {
             Code,
             CodeBlock,
             List,
+            ClipboardPipeline,
             Essentials,
             FindAndReplace,
             Font,
