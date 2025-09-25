@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import BaseButton, { type BaseButtonProps } from './BaseButton'
 import BaseEditIcon from '../icon/BaseEditIcon'
 import { twMerge } from 'tailwind-merge'
-import { CloseCircleOutlined, SaveOutlined } from '@ant-design/icons'
+import { CloseCircleOutlined, EyeOutlined, SaveOutlined } from '@ant-design/icons'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 
 type Action = 'edit' | 'cancel' | 'save' | 'delete' | 'add' | 'view' | 'move'
@@ -49,6 +49,19 @@ export default function BaseActionButton(props: BaseActionButtonProps) {
           size='small'
           title={t('save')}
           icon={<SaveOutlined />}
+          className={twMerge('text-primary', className, dynamicClassName)}
+          {...restProps}
+        />
+      )
+    }
+
+    case 'view': {
+      return (
+        <BaseButton
+          type='link'
+          size='small'
+          title={t('view')}
+          icon={<EyeOutlined />}
           className={twMerge('text-primary', className, dynamicClassName)}
           {...restProps}
         />
