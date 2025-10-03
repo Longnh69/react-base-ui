@@ -4,6 +4,15 @@ import { twMerge } from 'tailwind-merge'
 import useDynamicClassName from '../../hooks/useDynamicClassName'
 import { type PropsWithStyleCss } from '../../types/props-with-style-css.type'
 
+export const formLayout = {
+  labelCol: {
+    span: 8,
+  },
+  wrapperCol: {
+    span: 16,
+  },
+}
+
 export interface BaseFormProps extends FormProps, PropsWithStyleCss {
   children: ReactNode
 }

@@ -6,19 +6,21 @@ import BaseTableToolbarDensity from './BaseTableToolbarDensity'
 import BaseTableToolbarSetting from './BaseTableToolbarSetting'
 
 export default function BaseTableToolbar<T>(props: BaseTableToolbarProps<T>) {
-  const { title, setting } = props
+  const { title, setting, right, left } = props
 
   return (
     <Flex justify='space-between'>
-      <Flex>
-        <div>{title}</div>
-      </Flex>
+      <Flex>{right ?? <div>{title}</div>}</Flex>
       <Flex gap={4}>
-        <BaseButton color='white'>
-          <ReloadOutlined />
-        </BaseButton>
-        <BaseTableToolbarDensity />
-        <BaseTableToolbarSetting {...setting} />
+        {left ?? (
+          <>
+            <BaseButton color='white'>
+              <ReloadOutlined />
+            </BaseButton>
+            <BaseTableToolbarDensity />
+            <BaseTableToolbarSetting {...setting} />
+          </>
+        )}
       </Flex>
     </Flex>
   )

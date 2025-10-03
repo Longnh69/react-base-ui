@@ -37,8 +37,10 @@ export type BaseTableToolbarProps<T> = {
    * @description
    * Đặt key cho bảng để lưu vào local storage hoặc session storage, mặc định là local storage
    */
-  persistence: BaseTableToolbarPersistenceType
+  persistence?: BaseTableToolbarPersistenceType
   density?: boolean
   setting?: BaseTableToolbarSettingProps<T>
+  right?: ReactNode
+  left?: ReactNode
   onRefresh?: () => void
 }
